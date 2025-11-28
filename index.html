@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=1.0, user-scalable=yes">
-    <title>لعبة المتابعة الزمنية للتفاعل الكيميائي</title>
+    <title>الملخص الشامل في البكالوريا لأسئلة الوحدة الأولى</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -42,7 +42,6 @@
             top: 20px;
             right: 20px;
             z-index: 1000;
-            transition: all 0.3s ease;
         }
         
         .instagram-btn {
@@ -104,7 +103,7 @@
             opacity: 0.9;
         }
         
-        .welcome-screen, .level-selection, .quiz-container, .results-container, .level-locked, .protocols-screen, .performance-screen {
+        .welcome-screen, .definitions-screen, .theory-screen, .protocols-screen {
             padding: 25px;
             text-align: center;
             display: none;
@@ -179,20 +178,6 @@
                 inset 0 -2px 4px rgba(0, 0, 0, 0.3);
         }
         
-        .level-btn.locked {
-            background: linear-gradient(to bottom, #a0a0a0, #606060);
-            cursor: not-allowed;
-        }
-        
-        .level-btn.locked:hover {
-            transform: none;
-            box-shadow: 
-                0 8px 15px rgba(0, 0, 0, 0.2),
-                0 4px 6px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4),
-                inset 0 -4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
         .level-icon {
             width: 35px;
             height: 35px;
@@ -201,170 +186,7 @@
             border: 2px solid rgba(255, 255, 255, 0.5);
         }
         
-        .start-btn, .continue-btn {
-            padding: 15px 35px;
-            background: linear-gradient(to bottom, #50c878, #2e8b57);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 8px 15px rgba(0, 0, 0, 0.2),
-                0 4px 6px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4),
-                inset 0 -4px 8px rgba(0, 0, 0, 0.2);
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-        }
-        
-        .start-btn::before, .continue-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 40%;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-            border-radius: 15px 15px 0 0;
-            pointer-events: none;
-        }
-        
-        .start-btn:hover, .continue-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 
-                0 12px 20px rgba(0, 0, 0, 0.25),
-                0 6px 8px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4),
-                inset 0 -4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .progress {
-            height: 10px;
-            background-color: #e0e0e0;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(to right, #2e8b57, #d4af37);
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-        
-        .question-text {
-            font-size: 20px;
-            margin-bottom: 25px;
-            line-height: 1.5;
-            color: #2e8b57;
-            font-weight: 600;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .question-image {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #d4af37;
-        }
-        
-        .options-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-        
-        .option {
-            padding: 14px;
-            background: linear-gradient(to bottom, #f8f8f8, #e8e8e8);
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 16px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 4px 6px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .option::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 40%;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
-            border-radius: 12px 12px 0 0;
-            pointer-events: none;
-        }
-        
-        .option:hover {
-            background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
-            transform: translateY(-2px);
-            box-shadow: 
-                0 6px 10px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .option.selected {
-            background: linear-gradient(to bottom, #2e8b57, #1e6b47);
-            color: white;
-            border-color: #2e8b57;
-        }
-        
-        .option.correct {
-            background: linear-gradient(to bottom, #4CAF50, #3d8b40);
-            color: white;
-            border-color: #4CAF50;
-            animation: pulse 0.5s;
-        }
-        
-        .option.wrong {
-            background: linear-gradient(to bottom, #f44336, #d32f2f);
-            color: white;
-            border-color: #f44336;
-            animation: shake 0.5s;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            20% { transform: translateX(-8px); }
-            40% { transform: translateX(8px); }
-            60% { transform: translateX(-8px); }
-            80% { transform: translateX(8px); }
-            100% { transform: translateX(0); }
-        }
-        
-        .navigation {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        button {
+        .back-btn {
             padding: 12px 20px;
             background: linear-gradient(to bottom, #50c878, #2e8b57);
             color: white;
@@ -374,17 +196,18 @@
             font-size: 16px;
             font-weight: bold;
             transition: all 0.3s ease;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
             box-shadow: 
                 0 6px 12px rgba(0, 0, 0, 0.15),
                 0 3px 5px rgba(0, 0, 0, 0.1),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3),
                 inset 0 -3px 6px rgba(0, 0, 0, 0.2);
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
         }
         
-        button::before {
+        .back-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -396,7 +219,7 @@
             pointer-events: none;
         }
         
-        button:hover {
+        .back-btn:hover {
             transform: translateY(-2px);
             box-shadow: 
                 0 8px 15px rgba(0, 0, 0, 0.2),
@@ -405,94 +228,182 @@
                 inset 0 -3px 6px rgba(0, 0, 0, 0.2);
         }
         
-        button:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
+        /* تصميم الجداول */
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 16px;
+            text-align: right;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
         
-        .score {
-            font-size: 60px;
-            color: #2e8b57;
-            margin: 15px 0;
+        .content-table thead tr {
+            background: linear-gradient(to right, #2e8b57, #d4af37);
+            color: white;
+            text-align: right;
             font-weight: bold;
         }
         
-        .score-text {
-            font-size: 20px;
-            margin-bottom: 25px;
-            color: #333;
+        .content-table th,
+        .content-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #dddddd;
         }
         
-        .action-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+            transition: all 0.3s;
         }
         
-        .restart-btn, .back-to-levels, .try-again-btn {
-            background: linear-gradient(to bottom, #50c878, #2e8b57);
-            color: white;
-            padding: 14px 25px;
-            font-size: 16px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            max-width: 300px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 6px 12px rgba(0, 0, 0, 0.15),
-                0 3px 5px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                inset 0 -3px 6px rgba(0, 0, 0, 0.2);
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f8f9fa;
         }
         
-        .restart-btn::before, .back-to-levels::before, .try-again-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 40%;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-            border-radius: 12px 12px 0 0;
-            pointer-events: none;
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #2e8b57;
         }
         
-        .restart-btn:hover, .back-to-levels:hover, .try-again-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 
-                0 8px 15px rgba(0, 0, 0, 0.2),
-                0 4px 6px rgba(0, 0, 0, 0.12),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                inset 0 -3px 6px rgba(0, 0, 0, 0.2);
-        }
-        
-        .explanation {
-            margin-top: 20px;
-            padding: 15px;
+        .content-table tbody tr:hover {
             background-color: #e8f4fd;
-            border-radius: 8px;
-            border-right: 5px solid #2e8b57;
-            display: none;
+            transform: translateX(-5px);
         }
         
-        .locked-message {
-            font-size: 18px;
-            color: #f44336;
-            margin: 15px 0;
-        }
-        
-        .required-score {
-            font-size: 16px;
+        .question-cell {
+            font-weight: bold;
             color: #2e8b57;
-            margin: 8px 0;
+        }
+        
+        .answer-cell {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        .explanation-cell {
+            color: #555;
+            font-size: 14px;
+        }
+        
+        /* تصميم البروتوكولات */
+        .protocol-container {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 2px solid #2e8b57;
+            border-radius: 15px;
+            background-color: #f8f9fa;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .protocol-title {
+            color: #2e8b57;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 22px;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 10px;
+        }
+        
+        .protocol-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid #d4af37;
+        }
+        
+        .elements-container {
+            margin-bottom: 25px;
+        }
+        
+        .elements-title {
+            color: #2e8b57;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .elements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .element-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            border-right: 4px solid #2e8b57;
+            transition: all 0.3s;
+        }
+        
+        .element-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .element-number {
+            background: #2e8b57;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .element-name {
+            font-weight: bold;
+            color: #2e8b57;
+        }
+        
+        .steps-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            border-right: 4px solid #d4af37;
+        }
+        
+        .steps-title {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .steps-list {
+            list-style-type: none;
+            counter-reset: step-counter;
+        }
+        
+        .step-item {
+            margin-bottom: 15px;
+            padding-right: 40px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .step-item:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            background: #d4af37;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: bold;
         }
         
         .social-links {
@@ -529,305 +440,22 @@
             border: 2px solid #ffd700;
         }
         
-        .thinking-emoji {
-            font-size: 22px;
-            margin: 0 5px;
-            animation: float 3s infinite ease-in-out;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        
-        .percentage-score {
-            font-size: 24px;
-            color: #2e8b57;
-            margin: 12px 0;
-            font-weight: bold;
-        }
-        
-        .challenge-slogan {
-            font-size: 18px;
-            color: #d4af37;
-            margin: 8px 0;
-            font-weight: bold;
-        }
-        
-        .math-symbol {
-            font-family: 'Times New Roman', serif;
-            font-style: italic;
-            font-weight: bold;
-        }
-        
-        .fraction {
-            display: inline-block;
-            text-align: center;
-            vertical-align: middle;
-        }
-        
-        .fraction span {
-            display: block;
-        }
-        
-        .fraction .numerator {
-            border-bottom: 1px solid;
-            padding: 0 5px;
-        }
-        
-        .fraction .denominator {
-            padding: 0 5px;
-        }
-        
-        /* أنماط المستوى الثالث - البروتوكولات التجريبية */
-        .protocols-screen {
-            text-align: center;
-        }
-        
-        .menu-buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .menu-btn {
-            padding: 18px;
-            background: linear-gradient(135deg, #50c878, #2e8b57);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .menu-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(135deg, #2e8b57, #50c878);
-        }
-        
-        .back-btn {
-            padding: 10px 20px;
-            background-color: #95a5a6;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1em;
-            margin-bottom: 20px;
-            transition: background-color 0.3s;
-        }
-        
-        .back-btn:hover {
-            background-color: #7f8c8d;
-        }
-        
-        .image-container {
-            text-align: center;
-            margin-bottom: 25px;
-            border: 2px solid #50c878;
-            border-radius: 10px;
-            padding: 10px;
-            background-color: #f8f9fa;
-        }
-        
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            max-height: 400px;
-            object-fit: contain;
-        }
-        
-        .question-container {
-            margin-bottom: 25px;
-            padding: 20px;
-            background-color: #e8f4fc;
-            border-radius: 10px;
-            border-right: 5px solid #50c878;
-        }
-        
-        .question-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #2e8b57;
-        }
-        
-        .protocol-options-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-        
-        .protocol-option {
-            padding: 12px;
-            background-color: white;
-            border: 2px solid #50c878;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-        
-        .protocol-option:hover {
-            background-color: #d6eaf8;
-        }
-        
-        .protocol-option.correct {
-            background-color: #2ecc71;
-            color: white;
-        }
-        
-        .protocol-option.wrong {
-            background-color: #e74c3c;
-            color: white;
-        }
-        
-        .steps-container {
-            margin-top: 20px;
-        }
-        
-        .step {
-            padding: 12px;
-            margin-bottom: 10px;
-            background-color: white;
-            border: 2px solid #50c878;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .step:hover {
-            background-color: #d6eaf8;
-        }
-        
-        .step.correct-order {
-            background-color: #2ecc71;
-            color: white;
-        }
-        
-        .protocol-score {
-            text-align: center;
-            font-size: 1.2em;
-            margin-top: 15px;
-            font-weight: bold;
-            color: #2e8b57;
-        }
-        
-        .completion-message {
-            text-align: center;
-            font-size: 1.5em;
-            color: #2ecc71;
-            margin-top: 20px;
-            font-weight: bold;
-            display: none;
-        }
-        
-        .protocol-progress-bar {
-            height: 10px;
-            background-color: #ecf0f1;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-        
-        .protocol-progress {
-            height: 100%;
-            background-color: #50c878;
-            width: 0%;
-            transition: width 0.5s;
-        }
-        
-        .protocol-screen {
-            display: none;
-        }
-        
-        .active {
-            display: block;
-        }
-        
-        .shuffle-notice {
-            text-align: center;
-            color: #e67e22;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .error-message {
-            text-align: center;
-            color: #e74c3c;
-            margin: 10px 0;
-        }
-        
-        /* شاشة التقييم */
-        .performance-screen {
-            text-align: center;
-        }
-        
-        .performance-score {
-            font-size: 80px;
-            color: #d4af37;
-            margin: 20px 0;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .performance-message {
-            font-size: 24px;
-            margin: 20px 0;
-            color: #2e8b57;
-            line-height: 1.6;
-        }
-        
-        .performance-advice {
-            font-size: 18px;
-            margin: 15px 0;
-            color: #555;
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 10px;
-            border-right: 5px solid #d4af37;
-        }
-        
-        /* تأثيرات زر الإنستغرام */
-        .floating-instagram.correct {
-            animation: glow-green 1s ease;
-        }
-        
-        .floating-instagram.wrong {
-            animation: glow-red 1s ease;
-        }
-        
-        @keyframes glow-green {
-            0% { box-shadow: 0 0 5px rgba(46, 204, 113, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(46, 204, 113, 0.8); }
-            100% { box-shadow: 0 0 5px rgba(46, 204, 113, 0.5); }
-        }
-        
-        @keyframes glow-red {
-            0% { box-shadow: 0 0 5px rgba(231, 76, 60, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(231, 76, 60, 0.8); }
-            100% { box-shadow: 0 0 5px rgba(231, 76, 60, 0.5); }
-        }
-        
         @media (max-width: 768px) {
-            .menu-buttons {
+            .content-table {
+                font-size: 14px;
+            }
+            
+            .content-table th,
+            .content-table td {
+                padding: 10px 12px;
+            }
+            
+            .elements-grid {
                 grid-template-columns: 1fr;
             }
             
-            .protocol-options-container {
-                grid-template-columns: 1fr;
+            .protocol-container {
+                padding: 15px;
             }
         }
         
@@ -845,20 +473,6 @@
                 font-size: 20px;
             }
             
-            .question-text {
-                font-size: 18px;
-            }
-            
-            .option {
-                font-size: 15px;
-                padding: 12px;
-            }
-            
-            button {
-                padding: 10px 16px;
-                font-size: 15px;
-            }
-            
             .level-btn {
                 padding: 16px 20px;
                 font-size: 16px;
@@ -869,12 +483,8 @@
                 height: 120px;
             }
             
-            .welcome-screen, .level-selection, .quiz-container, .results-container, .level-locked, .protocols-screen, .performance-screen {
+            .welcome-screen, .definitions-screen, .theory-screen, .protocols-screen {
                 padding: 20px 15px;
-            }
-            
-            .score {
-                font-size: 50px;
             }
             
             .footer {
@@ -902,20 +512,12 @@
                 font-size: 15px;
                 padding: 14px 18px;
             }
-            
-            .question-text {
-                font-size: 16px;
-            }
-            
-            .option {
-                font-size: 14px;
-            }
         }
     </style>
 </head>
 <body>
     <!-- زر الإنستجرام العائم -->
-    <div class="floating-instagram" id="floating-instagram">
+    <div class="floating-instagram">
         <a href="https://www.instagram.com/Prof_zaki_phys" target="_blank" class="instagram-btn">
             <img src="https://i.suar.me/E7Vzj/l" alt="صورة البروفيسور" class="profile-img">
             <i class="fab fa-instagram"></i>
@@ -925,296 +527,74 @@
 
     <div class="container">
         <header>
-            <h1>لعبة المتابعة الزمنية للتفاعل الكيميائي <img src="https://i.suar.me/3AYjm/l" alt="صورة البروفيسور" class="question-image"></h1>
+            <h1>الملخص الشامل في البكالوريا لأسئلة الوحدة الأولى</h1>
+            <div class="subtitle">من إعداد الاستاذ بن خرفية زكرياء</div>
         </header>
         
         <div class="welcome-screen" id="welcome-screen">
-            <h2>مرحباً بك في لعبة <span class="thinking-emoji">🎯</span> Challenge 20 في الأسئلة النظرية</h2>
-            <div class="challenge-slogan">مع الأستاذ بن خرفية-العب- تمتع- واحصل على 20</div>
-            <p>هذه اللعبة تحتوي على مستويات:</p>
-            <ul style="text-align: right; margin: 20px 0; line-height: 1.8;">
-                <li><strong>المستوى الأول:</strong> أسئلة التعريفات الأساسية (22 سؤال)</li>
-                <li><strong>المستوى الثاني:</strong> أسئلة نظرية متقدمة (23 سؤال)</li>
-                <li><strong>المستوى الثالث:</strong> البروتوكولات التجريبية (6 بروتوكولات)</li>
-            </ul>
-            <p>يجب أن تحصل على 70% على الأقل في كل مستوى لفتح المستوى التالي</p>
-            <button class="start-btn" id="start-btn">ابدأ اللعبة</button>
-            <div class="social-links">
-                <p>للحصول على بقية الوحدات والألعاب زورا صفحتنا على الانستغرام😍</p>
-            </div>
-        </div>
-        
-        <div class="level-selection" id="level-selection">
-            <h2>اختر مستوى اللعبة <img src="https://i.suar.me/3AYjm/l" alt="صورة البروفيسور" class="question-image"></h2>
+            <h2>مرحباً بك في الملخص الشامل</h2>
+            <p>هذا الملخص يحتوي على جميع محتويات الوحدة الأولى بشكل منظم:</p>
             <div class="level-buttons">
-                <button class="level-btn" id="level1-btn">
-                    <img src="https://i.suar.me/qnZpE/l" alt="المستوى الأول" class="level-icon">
-                    المستوى الأول: التعريفات
+                <button class="level-btn" id="definitions-btn">
+                    <img src="https://i.suar.me/qnZpE/l" alt="التعريفات" class="level-icon">
+                    التعريفات الأساسية
                 </button>
-                <button class="level-btn locked" id="level2-btn">
-                    <img src="https://i.suar.me/qnZpE/l" alt="المستوى الثاني" class="level-icon">
-                    المستوى الثاني: الأسئلة النظرية
+                <button class="level-btn" id="theory-btn">
+                    <img src="https://i.suar.me/qnZpE/l" alt="الأسئلة النظرية" class="level-icon">
+                    الأسئلة النظرية
                 </button>
-                <button class="level-btn locked" id="level3-btn">
-                    <img src="https://i.suar.me/qnZpE/l" alt="المستوى الثالث" class="level-icon">
-                    المستوى الثالث: البروتوكولات التجريبية
-                </button>
-                <button class="level-btn" id="performance-btn">
-                    <img src="https://i.suar.me/qnZpE/l" alt="تقييم الأداء" class="level-icon">
-                    شحال ديت😃؟
+                <button class="level-btn" id="protocols-btn">
+                    <img src="https://i.suar.me/qnZpE/l" alt="البروتوكولات التجريبية" class="level-icon">
+                    البروتوكولات التجريبية
                 </button>
             </div>
-            <button class="back-to-levels" id="back-to-welcome" style="margin-top: 20px;">العودة للشاشة الرئيسية</button>
-        </div>
-        
-        <div class="level-locked" id="level-locked">
-            <h2>المستوى مقفل <span class="thinking-emoji">🔒</span></h2>
-            <div class="locked-message" id="locked-message">يجب أن تحصل على 70% على الأقل في المستوى السابق لفتح هذا المستوى</div>
-            <div class="required-score" id="required-score">النسبة المطلوبة: 70%</div>
-            <div class="action-buttons">
-                <button class="try-again-btn" id="try-previous-level">حاول في المستوى السابق</button>
-                <button class="back-to-levels" id="back-to-levels">العودة لاختيار المستوى</button>
+            <div class="social-links">
+                <p>لمزيد من الملخصات الإلكترونية لبقية الوحدات زورو صفحتنا على الانستجرام 😍</p>
             </div>
         </div>
         
-        <div class="quiz-container" id="quiz">
-            <div class="quiz-content">
-                <div class="progress">
-                    <div class="progress-bar" id="progress-bar"></div>
-                </div>
-                
-                <div class="question-text" id="question-text"></div>
-                
-                <div class="options-container" id="options-container">
-                    <!-- سيتم ملء الخيارات بواسطة JavaScript -->
-                </div>
-                
-                <div class="explanation" id="explanation"></div>
-                
-                <div class="navigation">
-                    <button id="next-btn" style="display: none;">التالي</button>
-                    <button id="submit-btn" style="display: none;">عرض النتيجة</button>
-                </div>
-            </div>
+        <!-- شاشة التعريفات -->
+        <div class="definitions-screen" id="definitions-screen">
+            <button class="back-btn" id="back-from-definitions">العودة للصفحة الرئيسية</button>
+            <h2>التعريفات الأساسية</h2>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th width="40%">التعريف</th>
+                        <th width="30%">الإجابة الصحيحة</th>
+                        <th width="30%">الشرح</th>
+                    </tr>
+                </thead>
+                <tbody id="definitions-table-body">
+                    <!-- سيتم ملء الجدول بواسطة JavaScript -->
+                </tbody>
+            </table>
         </div>
         
-        <div class="results-container" id="results-container">
-            <h2>نتيجة الاختبار <span class="thinking-emoji">🎉</span></h2>
-            <div class="score" id="score">0/22</div>
-            <div class="percentage-score" id="percentage-score">0%</div>
-            <div class="score-text" id="score-text"></div>
-            <div class="action-buttons">
-                <button class="restart-btn" id="restart-btn">إعادة نفس المستوى</button>
-                <button class="back-to-levels" id="back-to-levels-from-results">العودة لاختيار المستوى</button>
-            </div>
+        <!-- شاشة الأسئلة النظرية -->
+        <div class="theory-screen" id="theory-screen">
+            <button class="back-btn" id="back-from-theory">العودة للصفحة الرئيسية</button>
+            <h2>الأسئلة النظرية</h2>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th width="40%">السؤال</th>
+                        <th width="30%">الإجابة الصحيحة</th>
+                        <th width="30%">الشرح</th>
+                    </tr>
+                </thead>
+                <tbody id="theory-table-body">
+                    <!-- سيتم ملء الجدول بواسطة JavaScript -->
+                </tbody>
+            </table>
         </div>
         
-        <!-- المستوى الثالث - البروتوكولات التجريبية -->
+        <!-- شاشة البروتوكولات التجريبية -->
         <div class="protocols-screen" id="protocols-screen">
-            <button class="back-btn" id="back-from-protocols">العودة لاختيار المستوى</button>
-            <h1>البروتوكولات التجريبية <span class="thinking-emoji">🔬</span></h1>
-            <div class="shuffle-notice">ملاحظة: سيتم خلط ترتيب العناصر عشوائياً في كل مرة تلعب فيها</div>
-            <div class="main-menu">
-                <div class="menu-buttons">
-                    <button class="menu-btn" id="titrationBtn">البروتوكول التجريبي للمعايرة</button>
-                    <button class="menu-btn" id="gasVolumeBtn">البروتوكول التجريبي للمتابعة الزمنية عن طريق قياس حجم غاز</button>
-                    <button class="menu-btn" id="gasPressureBtn">البروتوكول التجريبي للمتابعة الزمنية عن طريق قياس ضغط غاز</button>
-                    <button class="menu-btn" id="conductivityBtn">البروتوكول التجريبي للمتابعة عن طريق قياس الناقلية</button>
-                    <button class="menu-btn" id="dilutionBtn">البروتوكول التجريبي لعملية التمديد</button>
-                    <button class="menu-btn" id="solutionPrepBtn">البروتوكول التجريبي لعملية تحضير محلول انطلاقا من مادة صلبة</button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- شاشات البروتوكولات المختلفة -->
-        <!-- لعبة المعايرة -->
-        <div id="titrationScreen" class="protocol-screen">
-            <button class="back-btn" id="backFromTitration">العودة للشاشة الرئيسية</button>
-            <h1>البروتوكول التجريبي للمعايرة</h1>
-            
-            <div class="protocol-progress-bar">
-                <div class="protocol-progress" id="titrationProgress"></div>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://i.suar.me/mp4yN/l" alt="إعداد المعايرة الكيميائية" onerror="this.src='https://via.placeholder.com/600x400/3498db/ffffff?text=صورة+المعايرة'">
-            </div>
-            
-            <div class="question-container" id="titrationElementQuestion">
-                <div class="question-title">سم العنصر رقم <span id="titrationCurrentElement">1</span></div>
-                <div class="protocol-options-container" id="titrationElementOptions"></div>
-            </div>
-            
-            <div class="question-container" id="titrationStepsQuestion" style="display: none;">
-                <div class="question-title">رتب خطوات العمل بالترتيب الصحيح</div>
-                <div class="steps-container" id="titrationStepsContainer"></div>
-            </div>
-            
-            <div class="protocol-score" id="titrationScore">النقاط: 0/7</div>
-            
-            <div class="completion-message" id="titrationCompletionMessage">
-                مبروك! لقد أكملت اللعبة بنجاح
-            </div>
-        </div>
-        
-        <!-- لعبة قياس حجم الغاز -->
-        <div id="gasVolumeScreen" class="protocol-screen">
-            <button class="back-btn" id="backFromGasVolume">العودة للشاشة الرئيسية</button>
-            <h1>البروتوكول التجريبي للمتابعة الزمنية عن طريق قياس حجم غاز</h1>
-            
-            <div class="protocol-progress-bar">
-                <div class="protocol-progress" id="gasVolumeProgress"></div>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://i.suar.me/npZGx/l" alt="إعداد قياس حجم الغاز" onerror="this.src='https://via.placeholder.com/600x400/2ecc71/ffffff?text=صورة+قياس+حجم+الغاز'">
-            </div>
-            
-            <div class="question-container" id="gasVolumeElementQuestion">
-                <div class="question-title">سم العنصر رقم <span id="gasVolumeCurrentElement">1</span></div>
-                <div class="protocol-options-container" id="gasVolumeElementOptions"></div>
-            </div>
-            
-            <div class="question-container" id="gasVolumeStepsQuestion" style="display: none;">
-                <div class="question-title">رتب خطوات العمل بالترتيب الصحيح</div>
-                <div class="steps-container" id="gasVolumeStepsContainer"></div>
-            </div>
-            
-            <div class="protocol-score" id="gasVolumeScore">النقاط: 0/7</div>
-            
-            <div class="completion-message" id="gasVolumeCompletionMessage">
-                مبروك! لقد أكملت اللعبة بنجاح
-            </div>
-        </div>
-        
-        <!-- لعبة قياس ضغط الغاز -->
-        <div id="gasPressureScreen" class="protocol-screen">
-            <button class="back-btn" id="backFromGasPressure">العودة للشاشة الرئيسية</button>
-            <h1>البروتوكول التجريبي للمتابعة الزمنية عن طريق قياس ضغط غاز</h1>
-            
-            <div class="protocol-progress-bar">
-                <div class="protocol-progress" id="gasPressureProgress"></div>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://i.suar.me/PzBa2/l" alt="إعداد قياس ضغط الغاز" onerror="this.src='https://via.placeholder.com/600x400/e74c3c/ffffff?text=صورة+قياس+ضغط+الغاز'">
-            </div>
-            
-            <div class="question-container" id="gasPressureElementQuestion">
-                <div class="question-title">سم العنصر رقم <span id="gasPressureCurrentElement">1</span></div>
-                <div class="protocol-options-container" id="gasPressureElementOptions"></div>
-            </div>
-            
-            <div class="question-container" id="gasPressureStepsQuestion" style="display: none;">
-                <div class="question-title">رتب خطوات العمل بالترتيب الصحيح</div>
-                <div class="steps-container" id="gasPressureStepsContainer"></div>
-            </div>
-            
-            <div class="protocol-score" id="gasPressureScore">النقاط: 0/5</div>
-            
-            <div class="completion-message" id="gasPressureCompletionMessage">
-                مبروك! لقد أكملت اللعبة بنجاح
-            </div>
-        </div>
-        
-        <!-- لعبة قياس الناقلية -->
-        <div id="conductivityScreen" class="protocol-screen">
-            <button class="back-btn" id="backFromConductivity">العودة للشاشة الرئيسية</button>
-            <h1>البروتوكول التجريبي للمتابعة عن طريق قياس الناقلية</h1>
-            
-            <div class="protocol-progress-bar">
-                <div class="protocol-progress" id="conductivityProgress"></div>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://i.suar.me/81d26/l" alt="إعداد قياس الناقلية" onerror="this.src='https://via.placeholder.com/600x400/9b59b6/ffffff?text=صورة+قياس+الناقلية'">
-            </div>
-            
-            <div class="question-container" id="conductivityElementQuestion">
-                <div class="question-title">سم العنصر رقم <span id="conductivityCurrentElement">1</span></div>
-                <div class="protocol-options-container" id="conductivityElementOptions"></div>
-            </div>
-            
-            <div class="question-container" id="conductivityStepsQuestion" style="display: none;">
-                <div class="question-title">رتب خطوات العمل بالترتيب الصحيح</div>
-                <div class="steps-container" id="conductivityStepsContainer"></div>
-            </div>
-            
-            <div class="protocol-score" id="conductivityScore">النقاط: 0/4</div>
-            
-            <div class="completion-message" id="conductivityCompletionMessage">
-                مبروك! لقد أكملت اللعبة بنجاح
-            </div>
-        </div>
-        
-        <!-- لعبة عملية التمديد -->
-        <div id="dilutionScreen" class="protocol-screen">
-            <button class="back-btn" id="backFromDilution">العودة للشاشة الرئيسية</button>
-            <h1>البروتوكول التجريبي لعملية التمديد</h1>
-            
-            <div class="protocol-progress-bar">
-                <div class="protocol-progress" id="dilutionProgress"></div>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://i.suar.me/j5YG2/l" alt="إعداد عملية التمديد" onerror="this.src='https://via.placeholder.com/600x400/f39c12/ffffff?text=صورة+عملية+التمديد'">
-            </div>
-            
-            <div class="question-container" id="dilutionElementQuestion">
-                <div class="question-title">سم العنصر رقم <span id="dilutionCurrentElement">1</span></div>
-                <div class="protocol-options-container" id="dilutionElementOptions"></div>
-            </div>
-            
-            <div class="question-container" id="dilutionStepsQuestion" style="display: none;">
-                <div class="question-title">رتب خطوات العمل بالترتيب الصحيح</div>
-                <div class="steps-container" id="dilutionStepsContainer"></div>
-            </div>
-            
-            <div class="protocol-score" id="dilutionScore">النقاط: 0/4</div>
-            
-            <div class="completion-message" id="dilutionCompletionMessage">
-                مبروك! لقد أكملت اللعبة بنجاح
-            </div>
-        </div>
-        
-        <!-- لعبة تحضير محلول من مادة صلبة -->
-        <div id="solutionPrepScreen" class="protocol-screen">
-            <button class="back-btn" id="backFromSolutionPrep">العودة للشاشة الرئيسية</button>
-            <h1>البروتوكول التجريبي لعملية تحضير محلول انطلاقا من مادة صلبة</h1>
-            
-            <div class="protocol-progress-bar">
-                <div class="protocol-progress" id="solutionPrepProgress"></div>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://i.suar.me/dp7Y7/l" alt="إعداد تحضير محلول من مادة صلبة" onerror="this.src='https://via.placeholder.com/600x400/1abc9c/ffffff?text=صورة+تحضير+المحلول'">
-            </div>
-            
-            <div class="question-container" id="solutionPrepElementQuestion">
-                <div class="question-title">سم العنصر رقم <span id="solutionPrepCurrentElement">1</span></div>
-                <div class="protocol-options-container" id="solutionPrepElementOptions"></div>
-            </div>
-            
-            <div class="question-container" id="solutionPrepStepsQuestion" style="display: none;">
-                <div class="question-title">رتب خطوات العمل بالترتيب الصحيح</div>
-                <div class="steps-container" id="solutionPrepStepsContainer"></div>
-            </div>
-            
-            <div class="protocol-score" id="solutionPrepScore">النقاط: 0/4</div>
-            
-            <div class="completion-message" id="solutionPrepCompletionMessage">
-                مبروك! لقد أكملت اللعبة بنجاح
-            </div>
-        </div>
-        
-        <!-- شاشة التقييم الشامل -->
-        <div class="performance-screen" id="performance-screen">
-            <h2>شحال ديت😃؟ <span class="thinking-emoji">📊</span></h2>
-            <div class="performance-score" id="overall-score">0%</div>
-            <div class="performance-message" id="performance-message"></div>
-            <div class="performance-advice" id="performance-advice"></div>
-            <div class="action-buttons">
-                <button class="restart-btn" id="back-from-performance">العودة لاختيار المستوى</button>
+            <button class="back-btn" id="back-from-protocols">العودة للصفحة الرئيسية</button>
+            <h2>البروتوكولات التجريبية</h2>
+            <div id="protocols-container">
+                <!-- سيتم ملء البروتوكولات بواسطة JavaScript -->
             </div>
         </div>
     </div>
@@ -1223,529 +603,252 @@
         جميع الحقوق محفوظة لسنة 2025
     </div>
 
-    <!-- تأثيرات صوتية -->
-    <audio id="click-sound" src="https://assets.mixkit.co/active_storage/sfx/247/247-preview.mp3" preload="auto"></audio>
-    <audio id="correct-sound" src="https://assets.mixkit.co/active_storage/sfx/257/257-preview.mp3" preload="auto"></audio>
-    <audio id="wrong-sound" src="https://assets.mixkit.co/active_storage/sfx/258/258-preview.mp3" preload="auto"></audio>
-    <audio id="level-up-sound" src="https://assets.mixkit.co/active_storage/sfx/270/270-preview.mp3" preload="auto"></audio>
-    <audio id="success-sound" src="https://assets.mixkit.co/active_storage/sfx/257/257-preview.mp3" preload="auto"></audio>
-
     <script>
-        // أسئلة المستوى الأول (التعاريف) - كاملة
-        const level1Questions = [
+        // بيانات التعريفات (المستوى الأول)
+        const definitions = [
             {
                 question: "ما هو تعريف تفاعل الأكسدة الإرجاعية؟",
-                options: [
-                    "تفاعل يتم خلاله انتقال للإلكترونات من مرجع إلى مؤكسد",
-                    "تفاعل يتم خلاله انتقال للبروتونات من مرجع إلى مؤكسد",
-                    "تفاعل يتم خلاله انتقال للنيوترونات من مرجع إلى مؤكسد",
-                    "تفاعل يتم خلاله انتقال للفوتونات من مرجع إلى مؤكسد"
-                ],
-                correct: 0,
+                answer: "تفاعل يتم خلاله انتقال للإلكترونات من مرجع إلى مؤكسد",
                 explanation: "تفاعل الأكسدة الإرجاعية: هو تفاعل يتم خلاله انتقال للإلكترونات من مرجع (لثنائية) إلى مؤكسد (لثنائية أخرى)."
             },
             {
                 question: "ما هو تعريف المؤكسد؟",
-                options: [
-                    "هو الفرد الكيميائي الذي يفقد إلكترونًا أو أكثر أثناء تفاعل كيميائي",
-                    "هو الفرد الكيميائي الذي يكتسب إلكترونًا أو أكثر أثناء تفاعل كيميائي",
-                    "هو الفرد الكيميائي الذي يحافظ على عدد إلكتروناته أثناء تفاعل كيميائي",
-                    "هو الفرد الكيميائي الذي يطلق طاقة أثناء تفاعل كيميائي"
-                ],
-                correct: 1,
+                answer: "هو الفرد الكيميائي الذي يكتسب إلكترونًا أو أكثر أثناء تفاعل كيميائي",
                 explanation: "المؤكسد: هو الفرد الكيميائي الذي يكتسب إلكترونًا أو أكثر أثناء تفاعل كيميائي."
             },
             {
                 question: "ما هو تعريف المرجع؟",
-                options: [
-                    "هو الفرد الكيميائي الذي يكتسب إلكترونًا أو أكثر أثناء تفاعل كيميائي",
-                    "هو الفرد الكيميائي الذي يفقد إلكترونًا أو أكثر أثناء تفاعل كيميائي",
-                    "هو الفرد الكيميائي الذي يحفز التفاعل الكيميائي",
-                    "هو الفرد الكيميائي الذي يبطئ التفاعل الكيميائي"
-                ],
-                correct: 1,
+                answer: "هو الفرد الكيميائي الذي يفقد إلكترونًا أو أكثر أثناء تفاعل كيميائي",
                 explanation: "المرجع: هو الفرد الكيميائي الذي يفقد إلكترونًا أو أكثر أثناء تفاعل كيميائي."
             },
             {
                 question: "ما هي عملية الأكسدة؟",
-                options: [
-                    "هي عملية اكتساب إلكترونات خلال تفاعل كيميائي",
-                    "هي عملية فقدان إلكترونات خلال تفاعل كيميائي",
-                    "هي عملية تحرير طاقة خلال تفاعل كيميائي",
-                    "هي عملية امتصاص طاقة خلال تفاعل كيميائي"
-                ],
-                correct: 1,
+                answer: "هي عملية فقدان إلكترونات خلال تفاعل كيميائي",
                 explanation: "عملية الأكسدة: هي عملية فقدان إلكترونات خلال تفاعل كيميائي."
             },
             {
                 question: "ما هي عملية الإرجاع؟",
-                options: [
-                    "هي عملية فقدان إلكترونات خلال تفاعل كيميائي",
-                    "هي عملية اكتساب إلكترونات خلال تفاعل كيميائي",
-                    "هي عملية تحرير طاقة خلال تفاعل كيميائي",
-                    "هي عملية امتصاص طاقة خلال تفاعل كيميائي"
-                ],
-                correct: 1,
+                answer: "هي عملية اكتساب إلكترونات خلال تفاعل كيميائي",
                 explanation: "عملية الإرجاع: هي عملية اكتساب إلكترونات خلال تفاعل كيميائي."
             },
             {
                 question: "ما تعريف سرعة التفاعل (v)؟",
-                options: [
-                    "هي مشتق تقدم التفاعل (X) بالنسبة للحجم",
-                    "هي مشتق تقدم التفاعل (X) بالنسبة للزمن",
-                    "هي مشتق تقدم التفاعل (X) بالنسبة للضغط",
-                    "هي مشتق تقدم التفاعل (X) بالنسبة لدرجة الحرارة"
-                ],
-                correct: 1,
+                answer: "هي مشتق تقدم التفاعل (X) بالنسبة للزمن",
                 explanation: "سرعة التفاعل (v): هي مشتق تقدم التفاعل (X) بالنسبة للزمن: <span class='math-symbol'>v = dx/dt</span>."
             },
             {
                 question: "ما تعريف السرعة الحجمية للتفاعل (v<sub>v</sub>)؟",
-                options: [
-                    "هي سرعة التفاعل في وحدة الكتلة",
-                    "هي سرعة التفاعل في وحدة الحجم",
-                    "هي سرعة التفاعل في وحدة الزمن",
-                    "هي سرعة التفاعل في وحدة الضغط"
-                ],
-                correct: 1,
+                answer: "هي سرعة التفاعل في وحدة الحجم",
                 explanation: "السرعة الحجمية للتفاعل (v<sub>v</sub>): هي سرعة التفاعل في وحدة الحجم: <span class='math-symbol'>v<sub>v</sub> = (1/V) × (dx/dt)</span>."
             },
             {
                 question: "ما تعريف التقدم النهائي (X<sub>f</sub>)؟",
-                options: [
-                    "هو القيمة النظرية لتقدم التفاعل عند بداية التفاعل",
-                    "هو القيمة التجريبية لتقدم التفاعل عند توقف الجملة الكيميائية عن التطور",
-                    "هو القيمة المتوسطة لتقدم التفاعل خلال الزمن",
-                    "هو القيمة اللحظية لتقدم التفاعل عند زمن معين"
-                ],
-                correct: 1,
+                answer: "هو القيمة التجريبية لتقدم التفاعل عند توقف الجملة الكيميائية عن التطور",
                 explanation: "التقدم النهائي (X<sub>f</sub>): هو القيمة التجريبية لتقدم التفاعل عند توقف الجملة الكيميائية عن التطور."
             },
             {
                 question: "ما هو المتفاعل المحد؟",
-                options: [
-                    "هو المتفاعل الذي يبقى بعد انتهاء التفاعل",
-                    "هو المتفاعل الذي يتم استهلاكه بالكامل أولاً في نهاية التفاعل",
-                    "هو المتفاعل الذي لا يدخل في التفاعل",
-                    "هو المتفاعل الذي يحفز التفاعل"
-                ],
-                correct: 1,
+                answer: "هو المتفاعل الذي يتم استهلاكه بالكامل أولاً في نهاية التفاعل",
                 explanation: "المتفاعل المحد: هو المتفاعل الذي يتم استهلاكه بالكامل أولاً في نهاية التفاعل."
             },
             {
                 question: "ما تعريف زمن نصف التفاعل (t<sub>1/2</sub>)؟",
-                options: [
-                    "هو الزمن اللازم ليصل تقدم التفاعل إلى ربع قيمته النهائية",
-                    "هو الزمن اللازم ليصل تقدم التفاعل إلى نصف قيمته النهائية",
-                    "هو الزمن اللازم ليصل تقدم التفاعل إلى ثلث قيمته النهائية",
-                    "هو الزمن اللازم ليصل تقدم التفاعل إلى ضعف قيمته النهائية"
-                ],
-                correct: 1,
+                answer: "هو الزمن اللازم ليصل تقدم التفاعل إلى نصف قيمته النهائية",
                 explanation: "زمن نصف التفاعل (t<sub>1/2</sub>): هو الزمن اللازم ليصل تقدم التفاعل إلى نصف قيمته النهائية: <span class='math-symbol'>x(t<sub>1/2</sub>) = x<sub>f</sub>/2</span>."
             },
             {
                 question: "ما هو الوسيط؟",
-                options: [
-                    "هو نوع كيميائي يبطئ التفاعل ويظهر في معادلة التفاعل النهائية",
-                    "هو نوع كيميائي يسرع التفاعل ولا يظهر في معادلة التفاعل النهائية، ولا يستهلك",
-                    "هو نوع كيميائي يغير من طبيعة النواتج",
-                    "هو نوع كيميائي يستهلك خلال التفاعل"
-                ],
-                correct: 1,
+                answer: "هو نوع كيميائي يسرع التفاعل ولا يظهر في معادلة التفاعل النهائية، ولا يستهلك",
                 explanation: "الوسيط: هو نوع كيميائي يسرع التفاعل ولا يظهر في معادلة التفاعل النهائية، ولا يستهلك."
             },
             {
                 question: "ما هو الوسيط المتجانس؟",
-                options: [
-                    "هو وسيط يكون في طور مختلف عن المتفاعلات",
-                    "هو وسيط يكون في نفس الطور مع المتفاعلات",
-                    "هو وسيط يكون في حالة غازية فقط",
-                    "هو وسيط يكون في حالة صلبة فقط"
-                ],
-                correct: 1,
+                answer: "هو وسيط يكون في نفس الطور مع المتفاعلات",
                 explanation: "الوسيط المتجانس: هو وسيط يكون في نفس الطور (مثل: سائل في سائل) مع المتفاعلات."
             },
             {
                 question: "ما هو الوسيط غير المتجانس؟",
-                options: [
-                    "هو وسيط يكون في نفس الطور مع المتفاعلات",
-                    "هو وسيط يكون في طور مختلف عن المتفاعلات",
-                    "هو وسيط يكون في حالة سائلة فقط",
-                    "هو وسيط يكون في حالة غازية فقط"
-                ],
-                correct: 1,
+                answer: "هو وسيط يكون في طور مختلف عن المتفاعلات",
                 explanation: "الوسيط غير المتجانس: هو وسيط يكون في طور مختلف (مثل: صلب في سائل) عن المتفاعلات."
             },
             {
                 question: "ما هو التصادم الفعال؟",
-                options: [
-                    "هو تصادم بين الأفراد المتفاعلة يكون مصحوبًا بطاقة كافية واتجاه مناسب يؤدي إلى تشكيل النواتج",
-                    "هو أي تصادم بين الأفراد المتفاعلة",
-                    "هو تصادم لا يؤدي إلى تشكيل النواتج",
-                    "هو تصادم بين النواتج فقط"
-                ],
-                correct: 0,
+                answer: "هو تصادم بين الأفراد المتفاعلة يكون مصحوبًا بطاقة كافية واتجاه مناسب يؤدي إلى تشكيل النواتج",
                 explanation: "التصادم الفعال: هو تصادم بين الأفراد المتفاعلة يكون مصحوبًا بطاقة كافية واتجاه مناسب يؤدي إلى تشكيل النواتج."
             },
             {
                 question: "ما هي الشوارد الخاملة؟",
-                options: [
-                    "هي الشوارد التي تدخل في التفاعل الكيميائي",
-                    "هي الشوارد التي لا تدخل في التفاعل الكيميائي، ويبقى تركيزها ثابتًا طوال مدة التفاعل",
-                    "هي الشوارد التي تزداد تركيزها خلال التفاعل",
-                    "هي الشوارد التي تنقص تركيزها خلال التفاعل"
-                ],
-                correct: 1,
+                answer: "هي الشوارد التي لا تدخل في التفاعل الكيميائي، ويبقى تركيزها ثابتًا طوال مدة التفاعل",
                 explanation: "الشوارد الخاملة: هي الشوارد التي لا تدخل في التفاعل الكيميائي، ويبقى تركيزها ثابتًا طوال مدة التفاعل."
             },
             {
                 question: "ما هو الكاشف الملون؟",
-                options: [
-                    "هو نوع كيميائي يعطي تغيرًا لونيًا ملحوظًا عند نقطة التكافؤ بسبب تغير في تركيب الوسط",
-                    "هو نوع كيميائي يحافظ على لونه خلال التفاعل",
-                    "هو نوع كيميائي يغير لون المتفاعلات فقط",
-                    "هو نوع كيميائي يغير لون النواتج فقط"
-                ],
-                correct: 0,
+                answer: "هو نوع كيميائي يعطي تغيرًا لونيًا ملحوظًا عند نقطة التكافؤ بسبب تغير في تركيب الوسط",
                 explanation: "الكاشف الملون: هو نوع كيميائي يعطي تغيرًا لونيًا ملحوظًا عند نقطة التكافؤ بسبب تغير في تركيب الوسط."
             },
             {
                 question: "ما تعريف حجم التكافؤ (V<sub>eq</sub>)؟",
-                options: [
-                    "هو حجم المحلول المعاير المضاف عند بداية التفاعل",
-                    "هو حجم المحلول المعاير المضاف عند الوصول إلى نقطة التكافؤ في التفاعل",
-                    "هو حجم المحلول المعاير المضاف عند نهاية التفاعل",
-                    "هو حجم المحلول المعاير المضاف عند منتصف التفاعل"
-                ],
-                correct: 1,
+                answer: "هو حجم المحلول المعاير المضاف عند الوصول إلى نقطة التكافؤ في التفاعل",
                 explanation: "حجم التكافؤ (V<sub>eq</sub>): هو حجم المحلول المعاير المضاف عند الوصول إلى نقطة التكافؤ في التفاعل."
             },
             {
                 question: "ما تعريف نقطة التكافؤ؟",
-                options: [
-                    "هي النقطة التي يصبح فيها المزيج التفاعلي في شروط غير متكافئة",
-                    "هي النقطة التي يصبح فيها المزيج التفاعلي في شروط ستوكيومترية",
-                    "هي النقطة التي يبدأ فيها التفاعل",
-                    "هي النقطة التي ينتهي فيها التفاعل"
-                ],
-                correct: 1,
+                answer: "هي النقطة التي يصبح فيها المزيج التفاعلي في شروط ستوكيومترية",
                 explanation: "نقطة التكافؤ: هي النقطة التي يصبح فيها المزيج التفاعلي في شروط ستوكيومترية، أي: <span class='math-symbol'>n(A)/a = n(B)/b</span>."
             },
             {
                 question: "ما تعريف التحول الكيميائي السريع؟",
-                options: [
-                    "تحول يستغرق حدوثه مدة طويلة (أيام أو أشهر أو سنوات)",
-                    "تحول يستغرق حدوثه عدة ثوانٍ أو دقائق أو ساعات",
-                    "تحول يحدث بمجرد تلامس المتفاعلات",
-                    "تحول لا يحدث أبدًا"
-                ],
-                correct: 2,
+                answer: "تحول يحدث بمجرد تلامس المتفاعلات",
                 explanation: "التحول الكيميائي السريع: تحول يحدث بمجرد تلامس المتفاعلات."
             },
             {
                 question: "ما تعريف التحول الكيميائي البطيء؟",
-                options: [
-                    "تحول يحدث بمجرد تلامس المتفاعلات",
-                    "تحول يستغرق حدوثه مدة طويلة (أيام أو أشهر أو سنوات)",
-                    "تحول يستغرق حدوثه عدة ثوانٍ أو دقائق أو ساعات ويمكن متابعته",
-                    "تحول لا يمكن متابعته"
-                ],
-                correct: 2,
+                answer: "تحول يستغرق حدوثه عدة ثوانٍ أو دقائق أو ساعات ويمكن متابعته",
                 explanation: "التحول الكيميائي البطيء: تحول يستغرق حدوثه عدة ثوانٍ أو دقائق أو ساعات ويمكن متابعته."
             },
             {
                 question: "ما تعريف التحول الكيميائي البطيء جداً؟",
-                options: [
-                    "تحول يحدث بمجرد تلامس المتفاعلات",
-                    "تحول يستغرق حدوثه عدة ثوانٍ أو دقائق أو ساعات",
-                    "تحول يستغرق حدوثه مدة طويلة (أيام أو أشهر أو سنوات) ويصعب متابعته زمنيًا إلا بعد تسريعه",
-                    "تحول يمكن متابعته بسهولة"
-                ],
-                correct: 2,
+                answer: "تحول يستغرق حدوثه مدة طويلة (أيام أو أشهر أو سنوات) ويصعب متابعته زمنيًا إلا بعد تسريعه",
                 explanation: "التحول الكيميائي البطيء جداً: تحول يستغرق حدوثه مدة طويلة (أيام أو أشهر أو سنوات) ويصعب متابعته زمنيًا إلا بعد تسريعه."
             },
             {
                 question: "عرف تفاعل الأكسدة الإرجاعية؟",
-                options: [
-                    "هو تفاعل يحدث خلاله انتقال للإلكترونات من مرجع لثنائية الى مؤكسد لثنائية أخرى",
-                    "هو تفاعل يحدث خلاله انتقال للبروتونات بين المواد",
-                    "هو تفاعل يحدث خلاله انتقال للطاقة الحرارية",
-                    "هو تفاعل يحدث خلاله تغير في لون المواد"
-                ],
-                correct: 0,
+                answer: "هو تفاعل يحدث خلاله انتقال للإلكترونات من مرجع لثنائية الى مؤكسد لثنائية أخرى",
                 explanation: "تفاعل الأكسدة الإرجاعية: هو تفاعل يحدث خلاله انتقال للإلكترونات من مرجع لثنائية الى مؤكسد لثنائية أخرى."
             }
         ];
 
-        // أسئلة المستوى الثاني (الأسئلة النظرية) - تم إزالة سؤال العامل الحفاز
-        const level2Questions = [
+        // بيانات الأسئلة النظرية (المستوى الثاني)
+        const theoryQuestions = [
             {
                 question: "ما دواعي إستعمال المتابعة عن طريق قياس الناقلية؟",
-                options: [
-                    "عندما يكون التفاعل سريعًا جدًا",
-                    "وجود الشوارد في المتفاعلات او النواتج",
-                    "عندما يكون التفاعل يحتوي على مواد صلبة فقط",
-                    "عندما يكون التفاعل يحتوي على مواد غازية فقط"
-                ],
-                correct: 1,
+                answer: "وجود الشوارد في المتفاعلات او النواتج",
                 explanation: "دواعي إستعمال المتابعة عن طريق قياس الناقلية: وجود الشوارد في المتفاعلات او النواتج."
             },
             {
                 question: "ما الهدف من المعايرة؟",
-                options: [
-                    "تحديد لون المحلول",
-                    "تحديد تركيز (أو كمية مادة) نوع كيميائي مجهول باستخدام نوع كيميائي آخر معلوم التركيز",
-                    "تحديد درجة حرارة التفاعل",
-                    "تحديد سرعة التفاعل"
-                ],
-                correct: 1,
+                answer: "تحديد تركيز (أو كمية مادة) نوع كيميائي مجهول باستخدام نوع كيميائي آخر معلوم التركيز",
                 explanation: "الهدف من المعايرة: تحديد تركيز (أو كمية مادة) نوع كيميائي مجهول باستخدام نوع كيميائي آخر معلوم التركيز."
             },
             {
                 question: "ما هي نقطة التكافؤ؟",
-                options: [
-                    "هي النقطة التي يبدأ فيها التفاعل",
-                    "هي النقطة التي يصبح عندها المزيج في شروط ستوكيومترية: <span class='math-symbol'>n(A)/a = n(B)/b</span>",
-                    "هي النقطة التي ينتهي فيها التفاعل",
-                    "هي النقطة التي يتساوى فيها حجم المتفاعلات"
-                ],
-                correct: 1,
+                answer: "هي النقطة التي يصبح عندها المزيج في شروط ستوكيومترية: <span class='math-symbol'>n(A)/a = n(B)/b</span>",
                 explanation: "نقطة التكافؤ: هي النقطة التي يصبح عندها المزيج في شروط ستوكيومترية: <span class='math-symbol'>n(A)/a = n(B)/b</span>."
             },
             {
                 question: "كيف نستدل تجريبيًا على نقطة التكافؤ في المعايرة اللونية؟",
-                options: [
-                    "نستدل عليها عندما يثبت لون المحلول",
-                    "نستدل عليها عندما يتغير لون المحلول تدريجيًا",
-                    "نستدل عليها لحظة حدوث التغير اللوني المفاجئ والدائم للمحلول",
-                    "نستدل عليها عندما يختفي لون المحلول"
-                ],
-                correct: 2,
+                answer: "نستدل عليها لحظة حدوث التغير اللوني المفاجئ والدائم للمحلول",
                 explanation: "نستدل تجريبيًا على نقطة التكافؤ في المعايرة اللونية: لحظة حدوث التغير اللوني المفاجئ والدائم للمحلول."
             },
             {
                 question: "ما فائدة صمغ النشاء في المعايرة اللونية？",
-                options: [
-                    "يعمل على تسريع التفاعل",
-                    "يعمل على إبطاء التفاعل",
-                    "يعمل على تسهيل وتعزيز رؤية التغير اللوني عند نقطة التكافؤ، مما يجعلها أكثر وضوحًا",
-                    "يعمل على تغيير لون المحلول"
-                ],
-                correct: 2,
+                answer: "يعمل على تسهيل وتعزيز رؤية التغير اللوني عند نقطة التكافؤ، مما يجعلها أكثر وضوحًا",
                 explanation: "فائدة صمغ النشاء في المعايرة اللونية: يعمل على تسهيل وتعزيز رؤية التغير اللوني عند نقطة التكافؤ، مما يجعلها أكثر وضوحًا."
             },
             {
                 question: "ما أهمية زمن نصف التفاعل (t<sub>1/2</sub>)？",
-                options: [
-                    "يمكننا من مقارنة سرعة تفاعلين مختلفين، وتقدير المدة اللازمة ليكتمل التفاعل",
-                    "يمكننا من تحديد لون التفاعل",
-                    "يمكننا من تحديد تركيز المتفاعلات",
-                    "يمكننا من تحديد درجة حرارة التفاعل"
-                ],
-                correct: 0,
+                answer: "يمكننا من مقارنة سرعة تفاعلين مختلفين، وتقدير المدة اللازمة ليكتمل التفاعل",
                 explanation: "أهمية زمن نصف التفاعل (t<sub>1/2</sub>): يمكننا من مقارنة سرعة تفاعلين مختلفين، وتقدير المدة اللازمة ليكتمل التفاعل."
             },
             {
-                question: "متى تكون قيمة الناقلية النوعية معدومة عند (t = 0)？",
-                options: [
-                    "عندما تكون الشوارد موجودة في الوسط عند بداية التفاعل",
-                    "عندما لا توجد شوارد في الوسط عند بداية التفاعل (المتفاعلات ليست أيونية)",
-                    "عندما تكون الناقلية عالية جدًا",
-                    "عندما تكون الناقلية متوسطة"
-                ],
-                correct: 1,
+                question: "متى تكون قيمة الناقلية النوعية معدومة عند (t = 0)؟",
+                answer: "عندما لا توجد شوارد في الوسط عند بداية التفاعل (المتفاعلات ليست أيونية)",
                 explanation: "تكون قيمة الناقلية النوعية معدومة عند (t = 0): عندما لا توجد شوارد في الوسط عند بداية التفاعل (المتفاعلات ليست أيونية)."
             },
             {
-                question: "لماذا نضيف حمض الكبريت المركز？",
-                options: [
-                    "لتوفير شوارد OH⁻ وبالتالي توفير الوسط القاعدي",
-                    "لتوفير شوارد H<sub>3</sub>O⁺ وبالتالي توفير الوسط الحمضي الضروري لحدوث بعض التفاعلات",
-                    "لتبريد التفاعل",
-                    "لتسريع التفاعل بدون تغيير الوسط"
-                ],
-                correct: 1,
+                question: "لماذا نضيف حمض الكبريت المركز؟",
+                answer: "لتوفير شوارد H<sub>3</sub>O⁺ وبالتالي توفير الوسط الحمضي الضروري لحدوث بعض التفاعلات",
                 explanation: "نضيف حمض الكبريت المركز: لتوفير شوارد H<sub>3</sub>O⁺ وبالتالي توفير الوسط الحمضي الضروري لحدوث بعض التفاعلات."
             },
             {
-                question: "هل يؤثر التمديد (إضافة الماء) على نقطة التكافؤ？",
-                options: [
-                    "نعم، لأن حجم التكافؤ يتعلق بتركيز المحلول",
-                    "لا، لأن حجم التكافؤ يتعلق بكميات المادة (عدد المولات) وليس تركيزها",
-                    "نعم، لأن التمديد يغير من لون المحلول",
-                    "نعم، لأن التمديد يغير من سرعة التفاعل"
-                ],
-                correct: 1,
+                question: "هل يؤثر التمديد (إضافة الماء) على نقطة التكافؤ؟",
+                answer: "لا، لأن حجم التكافؤ يتعلق بكميات المادة (عدد المولات) وليس تركيزها",
                 explanation: "التمديد (إضافة الماء) لا يؤثر على نقطة التكافؤ: لأن حجم التكافؤ يتعلق بكميات المادة (عدد المولات) وليس تركيزها."
             },
             {
                 question: "عند زيادة درجة الحرارة، كيف يؤثر ذلك على سرعة التفاعل؟ ولماذا？",
-                options: [
-                    "تقل السرعة بسبب انخفاض الطاقة الحركية للجزيئات",
-                    "تزداد السرعة بسبب زيادة الطاقة الحركية للجزيئات، مما يرفع عدد وطاقة التصادمات الفعالة",
-                    "لا تتأثر السرعة بدرجة الحرارة",
-                    "تتغير السرعة بشكل عشوائي"
-                ],
-                correct: 1,
+                answer: "تزداد السرعة بسبب زيادة الطاقة الحركية للجزيئات، مما يرفع عدد وطاقة التصادمات الفعالة",
                 explanation: "عند زيادة درجة الحرارة، تزداد السرعة بسبب زيادة الطاقة الحركية للجزيئات، مما يرفع عدد وطاقة التصادمات الفعالة."
             },
             {
                 question: "كيف تتطور ناقلية المزيج التفاعلي？",
-                options: [
-                    "تتزايد دائمًا بغض النظر عن طبيعة الشوارد",
-                    "تتناقص دائمًا بغض النظر عن طبيعة الشوارد",
-                    "تتغير حسب طبيعة الشوارد في المتفاعلات والنواتج",
-                    "تبقى ثابتة دائمًا"
-                ],
-                correct: 2,
+                answer: "تتغير حسب طبيعة الشوارد في المتفاعلات والنواتج",
                 explanation: "تتطور ناقلية المزيج التفاعلي حسب طبيعة الشوارد: تتزايد إذا كانت الشوارد في النواتج أكثر، تتناقص إذا كانت الشوارد في المتفاعلات أكثر، وإذا كانت في كليهما نقارن بين قيم الناقلية النوعية المولية الشاردية."
             },
             {
                 question: "ما هي الأفراد المسؤولة عن ناقلية المزيج？",
-                options: [
-                    "الجزيئات المتعادلة فقط",
-                    "الشوارد (الأيونات) الموجودة في المحلول",
-                    "الذرات المتعادلة",
-                    "الإلكترونات الحرة"
-                ],
-                correct: 1,
+                answer: "الشوارد (الأيونات) الموجودة في المحلول",
                 explanation: "الأفراد المسؤولة عن ناقلية المزيج: الشوارد (الأيونات) الموجودة في المحلول."
             },
             {
                 question: "ما الفرق بين سرعة التفاعل والسرعة الحجمية للتفاعل？",
-                options: [
-                    "لا يوجد فرق بينهما",
-                    "سرعة التفاعل تعتمد على الحجم بينما السرعة الحجمية لا تعتمد",
-                    "السرعة الحجمية هي سرعة التفاعل في وحدة الحجم بينما سرعة التفاعل لا تراعي الحجم",
-                    "سرعة التفاعل خاصة بالتفاعلات البطيئة فقط"
-                ],
-                correct: 2,
+                answer: "السرعة الحجمية هي سرعة التفاعل في وحدة الحجم بينما سرعة التفاعل لا تراعي الحجم",
                 explanation: "الفرق: السرعة الحجمية هي سرعة التفاعل في وحدة الحجم (<span class='math-symbol'>v<sub>v</sub> = (1/V) × (dx/dt)</span>) بينما سرعة التفاعل (<span class='math-symbol'>v = dx/dt</span>) لا تراعي الحجم."
             },
             {
                 question: "كيف يؤثر تركيز المتفاعلات على سرعة التفاعل？",
-                options: [
-                    "زيادة التركيز تزيد سرعة التفاعل بسبب زيادة عدد التصادمات الفعالة",
-                    "زيادة التركيز تقلل سرعة التفاعل بسبب تشبع الوسط",
-                    "التركيز لا يؤثر على سرعة التفاعل",
-                    "تأثير التركيز يعتمد على لون المتفاعلات"
-                ],
-                correct: 0,
+                answer: "زيادة التركيز تزيد سرعة التفاعل بسبب زيادة عدد التصادمات الفعالة",
                 explanation: "زيادة تركيز المتفاعلات تزيد من سرعة التفاعل بسبب زيادة عدد التصادمات بين الجزيئات المتفاعلة، مما يزيد من احتمال حدوث تصادمات فعالة."
             },
             {
                 question: "كيف تتغير سرعة التفاعل مع مرور الزمن مع الاعليل？",
-                options: [
-                    "تزداد بسبب زيادة تركيز المتفاعلات",
-                    "تتناقص بسبب تناقص تركيز المتفاعلات",
-                    "تبقى ثابتة طوال الوقت",
-                    "تتغير بشكل عشوائي"
-                ],
-                correct: 1,
+                answer: "تتناقص بسبب تناقص تركيز المتفاعلات",
                 explanation: "تتناقص سرعة التفاعل مع مرور الزمن بسبب تناقص تركيز المتفاعلات."
             },
             {
                 question: "فسر تناقص سرعة التفاعل مع مرور الزمن？",
-                options: [
-                    "زيادة تراكيز النواتج تبطئ التفاعل",
-                    "تناقص تراكيز المتفاعلات يؤدي الى تناقص عدد الأفراد في وحدة الحجم ومنه تناقص سرعة التفاعل",
-                    "تغير درجة الحرارة مع الزمن",
-                    "تغير لون المحلول مع الزمن"
-                ],
-                correct: 1,
+                answer: "تناقص تراكيز المتفاعلات يؤدي الى تناقص عدد الأفراد في وحدة الحجم ومنه تناقص سرعة التفاعل",
                 explanation: "تناقص تراكيز المتفاعلات يؤدي الى تناقص عدد الأفراد في وحدة الحجم ومنه تناقص سرعة التفاعل."
             },
             {
                 question: "لمذا نبرد العينات (إضافة الماء البارد وقطع الجليد) أثناء المعايرة？",
-                options: [
-                    "لتغيير لون المحلول",
-                    "لتسريع التفاعل",
-                    "لتوقيف التفاعل",
-                    "لتحسين طعم المحلول"
-                ],
-                correct: 2,
+                answer: "لتوقيف التفاعل",
                 explanation: "نبرد العينات (إضافة الماء البارد وقطع الجليد) أثناء المعايرة لتوقيف التفاعل."
             },
             {
                 question: "كيف تؤثر زيادة درجة الحرارة على سرعة التفاعل？",
-                options: [
-                    "تقليل سرعة التفاعل بسبب تباطؤ الجزيئات",
-                    "زيادة درجة الحرارة يؤدي الى زيادة الطاقة الحركية للأفراد المتفاعلة ومنه زيادة في التصادمات الفعالة ومنها زيادة السرعة",
-                    "لا تؤثر على سرعة التفاعل",
-                    "تغير من طبيعة النواتج فقط"
-                ],
-                correct: 1,
+                answer: "زيادة درجة الحرارة يؤدي الى زيادة الطاقة الحركية للأفراد المتفاعلة ومنه زيادة في التصادمات الفعالة ومنها زيادة السرعة",
                 explanation: "زيادة درجة الحرارة يؤدي الى زيادة الطاقة الحركية للأفراد المتفاعلة ومنه زيادة في التصادمات الفعالة ومنها زيادة السرعة."
             },
             {
                 question: "كيف يؤثر زيادة تراكيز المتفاعلات على سرعة التفاعل？ فسر？",
-                options: [
-                    "تقلل من سرعة التفاعل بسبب تشبع الوسط",
-                    "تزيد من سرعة التفاعل لأن زيادة التركيز تؤدي لزيادة عدد الأفراد في وحدة الحجم ومنه زيادة التصادمات الفعالة",
-                    "لا تؤثر على سرعة التفاعل",
-                    "تغير من لون التفاعل فقط"
-                ],
-                correct: 1,
+                answer: "تزيد من سرعة التفاعل لأن زيادة التركيز تؤدي لزيادة عدد الأفراد في وحدة الحجم ومنه زيادة التصادمات الفعالة",
                 explanation: "تزيد من سرعة التفاعل لأن زيادة التركيز تؤدي لزيادة عدد الأفراد في وحدة الحجم ومنه زيادة التصادمات الفعالة."
             },
             {
                 question: "كيف تؤثر زيادة سطح التلامس على سرعة التفاعل？",
-                options: [
-                    "تقليل سرعة التفاعل بسبب تشتت الجزيئات",
-                    "زيادة سطح التلامس يؤدي الى زيادة التصادمات الفعالة ومنه زيادة سرعة التفاعل",
-                    "لا تؤثر على سرعة التفاعل",
-                    "تغير من طبيعة النواتج فقط"
-                ],
-                correct: 1,
+                answer: "زيادة سطح التلامس يؤدي الى زيادة التصادمات الفعالة ومنه زيادة سرعة التفاعل",
                 explanation: "زيادة سطح التلامس يؤدي الى زيادة التصادمات الفعالة ومنه زيادة سرعة التفاعل."
             },
             {
                 question: "كيف تتطور ناقلية المزيج اذا كانت الشوارد في المتفاعلات？",
-                options: [
-                    "تزداد بسبب زيادة تركيز الشوارد",
-                    "تتناقص بسبب تناقص تراكيز الشوارد",
-                    "تبقى ثابتة",
-                    "تتغير بشكل عشوائي"
-                ],
-                correct: 1,
+                answer: "تتناقص بسبب تناقص تراكيز الشوارد",
                 explanation: "تتناقص ناقلية المزيج بسبب تناقص تراكيز الشوارد في المتفاعلات."
             },
             {
                 question: "كيف يمكن زيادة سرعة التفاعل？",
-                options: [
-                    "تقليل تركيز المتفاعلات",
-                    "إستعمال العوامل الحركية ( التركيز٫درجة الحرارة٫مساحة سطح التلامس٫ الوسائط)",
-                    "تبريد التفاعل",
-                    "إضافة مواد ملوثة"
-                ],
-                correct: 1,
+                answer: "إستعمال العوامل الحركية ( التركيز٫درجة الحرارة٫مساحة سطح التلامس٫ الوسائط)",
                 explanation: "يمكن زيادة سرعة التفاعل بإستعمال العوامل الحركية ( التركيز٫درجة الحرارة٫مساحة سطح التلامس٫ الوسائط)."
             },
             {
                 question: "ماهو دور المخلاط المغناطيسي في عملية المعايرة？",
-                options: [
-                    "تسخين المحلول",
-                    "تبريد المحلول",
-                    "مزج المحاليل للحصول على خليط متجانس",
-                    "تغيير لون المحلول"
-                ],
-                correct: 2,
+                answer: "مزج المحاليل للحصول على خليط متجانس",
                 explanation: "دور المخلاط المغناطيسي في عملية المعايرة: مزج المحاليل للحصول على خليط متجانس."
             }
         ];
 
-        // بيانات المستوى الثالث - البروتوكولات التجريبية (كاملة من الكود الأصلي)
+        // بيانات البروتوكولات التجريبية
         const protocolData = {
             titration: {
                 title: "البروتوكول التجريبي للمعايرة",
                 elements: [
-                    { number: 1, name: "حامل", options: ["حامل", "سحاحة", "بيشر", "مغناطيس"] },
-                    { number: 2, name: "المحلول المعايِر", options: ["المحلول المعايِر", "المحلول المعايَر", "ماء مقطر", "محلول ملحي"] },
-                    { number: 3, name: "مغناطيس", options: ["مغناطيس", "قضيب زجاجي", "مسعر", "مقياس حرارة"] },
-                    { number: 4, name: "سحاحة", options: ["سحاحة", "دورق", "مخبار", "ماصة"] },
-                    { number: 5, name: "بيشر", options: ["بيشر", "دورق", "كأس", "أنبوب اختبار"] },
-                    { number: 6, name: "المحلول المعايَر", options: ["المحلول المعايَر", "المحلول المعايِر", "ماء مقطر", "محلول ملحي"] },
-                    { number: 7, name: "مخلاط مغناطيسي", options: ["مخلاط مغناطيسي", "حاضنة", "فرن", "طاحونة"] }
+                    { number: 1, name: "حامل" },
+                    { number: 2, name: "المحلول المعايِر" },
+                    { number: 3, name: "مغناطيس" },
+                    { number: 4, name: "سحاحة" },
+                    { number: 5, name: "بيشر" },
+                    { number: 6, name: "المحلول المعايَر" },
+                    { number: 7, name: "مخلاط مغناطيسي" }
                 ],
                 steps: [
                     "ملء السحاحة بالمحلول المعايِر الى التدريجة 0",
@@ -1758,13 +861,13 @@
             gasVolume: {
                 title: "البروتوكول التجريبي للمتابعة الزمنية عن طريق قياس حجم غاز",
                 elements: [
-                    { number: 1, name: "مزيج تفاعلي", options: ["مزيج تفاعلي", "غاز منطلق", "ماء", "أنبوب نقل الغاز"] },
-                    { number: 2, name: "دورق", options: ["دورق", "مخبار مدرج منكس", "حوض", "أنبوب نقل الغاز"] },
-                    { number: 3, name: "مخبار مدرج منكس", options: ["مخبار مدرج منكس", "دورق", "حوض", "ماء"] },
-                    { number: 4, name: "حوض", options: ["حوض", "دورق", "مخبار مدرج منكس", "ماء"] },
-                    { number: 5, name: "ماء", options: ["ماء", "غاز منطلق", "مزيج تفاعلي", "أنبوب نقل الغاز"] },
-                    { number: 6, name: "أنبوب نقل الغاز", options: ["أنبوب نقل الغاز", "مخبار مدرج منكس", "دورق", "حوض"] },
-                    { number: 7, name: "الغاز المنطلق", options: ["الغاز المنطلق", "ماء", "مزيج تفاعلي", "أنبوب نقل الغاز"] }
+                    { number: 1, name: "مزيج تفاعلي" },
+                    { number: 2, name: "دورق" },
+                    { number: 3, name: "مخبار مدرج منكس" },
+                    { number: 4, name: "حوض" },
+                    { number: 5, name: "ماء" },
+                    { number: 6, name: "أنبوب نقل الغاز" },
+                    { number: 7, name: "الغاز المنطلق" }
                 ],
                 steps: [
                     "نضع المزيج التفاعلي في دورق مسدود بسدادة موصولة بأنبوب لنقل الغاز",
@@ -1776,11 +879,11 @@
             gasPressure: {
                 title: "البروتوكول التجريبي للمتابعة الزمنية عن طريق قياس ضغط غاز",
                 elements: [
-                    { number: 1, name: "الكتلة المتفاعلة", options: ["الكتلة المتفاعلة", "المحلول الحمضي", "دورق", "جهاز قياس الضغط"] },
-                    { number: 2, name: "ايرلنماير او دورق", options: ["ايرلنماير او دورق", "الكتلة المتفاعلة", "أنبوب نقل الغاز", "جهاز قياس الضغط"] },
-                    { number: 3, name: "المحلول الحمضي", options: ["المحلول الحمضي", "الكتلة المتفاعلة", "دورق", "أنبوب نقل الغاز"] },
-                    { number: 4, name: "جهاز قياس الضغط(بارومتر)", options: ["جهاز قياس الضغط(بارومتر)", "دورق", "المحلول الحمضي", "أنبوب نقل الغاز"] },
-                    { number: 5, name: "أنبوب نقل الغاز", options: ["أنبوب نقل الغاز", "جهاز قياس الضغط", "دورق", "الكتلة المتفاعلة"] }
+                    { number: 1, name: "الكتلة المتفاعلة" },
+                    { number: 2, name: "ايرلنماير او دورق" },
+                    { number: 3, name: "المحلول الحمضي" },
+                    { number: 4, name: "جهاز قياس الضغط(بارومتر)" },
+                    { number: 5, name: "أنبوب نقل الغاز" }
                 ],
                 steps: [
                     "نمزج المزيج التفاعلي في الدورق المسدود بسدادة",
@@ -1792,10 +895,10 @@
             conductivity: {
                 title: "البروتوكول التجريبي للمتابعة عن طريق قياس الناقلية",
                 elements: [
-                    { number: 1, name: "بيشر", options: ["بيشر", "مسبار قياس الناقلية", "جهاز قياس الناقلية", "مزيج تفاعلي"] },
-                    { number: 2, name: "مسبار قياس الناقلية", options: ["مسبار قياس الناقلية", "بيشر", "جهاز قياس الناقلية", "مزيج تفاعلي"] },
-                    { number: 3, name: "جهاز قياس الناقلية", options: ["جهاز قياس الناقلية", "بيشر", "مسبار قياس الناقلية", "مزيج تفاعلي"] },
-                    { number: 4, name: "مزيج تفاعلي", options: ["مزيج تفاعلي", "بيشر", "مسبار قياس الناقلية", "جهاز قياس الناقلية"] }
+                    { number: 1, name: "بيشر" },
+                    { number: 2, name: "مسبار قياس الناقلية" },
+                    { number: 3, name: "جهاز قياس الناقلية" },
+                    { number: 4, name: "مزيج تفاعلي" }
                 ],
                 steps: [
                     "نضع المزيج التفاعلي في البيشر",
@@ -1807,10 +910,10 @@
             dilution: {
                 title: "البروتوكول التجريبي لعملية التمديد",
                 elements: [
-                    { number: 1, name: "ماصة عيارية", options: ["ماصة عيارية", "إجاصة مص", "حوجلة عيارية", "ماء مقطر"] },
-                    { number: 2, name: "إجاصة مص", options: ["إجاصة مص", "ماصة عيارية", "حوجلة عيارية", "ماء مقطر"] },
-                    { number: 3, name: "حوجلة عيارية", options: ["حوجلة عيارية", "ماصة عيارية", "إجاصة مص", "ماء مقطر"] },
-                    { number: 4, name: "ماء مقطر", options: ["ماء مقطر", "ماصة عيارية", "إجاصة مص", "حوجلة عيارية"] }
+                    { number: 1, name: "ماصة عيارية" },
+                    { number: 2, name: "إجاصة مص" },
+                    { number: 3, name: "حوجلة عيارية" },
+                    { number: 4, name: "ماء مقطر" }
                 ],
                 steps: [
                     "نأخذ بواسطة ماصة عيارية حجما قدره V<sub class='v0'>0</sub> من المحلول الأصلي",
@@ -1822,10 +925,10 @@
             solutionPrep: {
                 title: "البروتوكول التجريبي لعملية تحضير محلول انطلاقا من مادة صلبة",
                 elements: [
-                    { number: 1, name: "ميزان إلكتروني", options: ["ميزان إلكتروني", "المادة المذابة", "حوجلة عيارية", "ماء مقطر"] },
-                    { number: 2, name: "المادة المذابة", options: ["المادة المذابة", "ميزان إلكتروني", "حوجلة عيارية", "ماء مقطر"] },
-                    { number: 3, name: "حوجلة عيارية", options: ["حوجلة عيارية", "ميزان إلكتروني", "المادة المذابة", "ماء مقطر"] },
-                    { number: 4, name: "ماء مقطر", options: ["ماء مقطر", "ميزان إلكتروني", "المادة المذابة", "حوجلة عيارية"] }
+                    { number: 1, name: "ميزان إلكتروني" },
+                    { number: 2, name: "المادة المذابة" },
+                    { number: 3, name: "حوجلة عيارية" },
+                    { number: 4, name: "ماء مقطر" }
                 ],
                 steps: [
                     "نزن بواسطة ميزان إلكتروني كتلة m من المادة الصلبة",
@@ -1836,589 +939,119 @@
             }
         };
 
-        // دالة لخلط الخيارات عشوائياً
-        function shuffleArray(array) {
-            const shuffled = [...array];
-            for (let i = shuffled.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-            }
-            return shuffled;
-        }
-
-        // دالة لخلط الأسئلة والخيارات
-        function getShuffledQuestions(questions) {
-            return questions.map(question => {
-                const options = [...question.options];
-                const correctAnswer = options[question.correct];
-                
-                // خلط الخيارات
-                const shuffledOptions = shuffleArray(options);
-                
-                // إيجاد الفهرس الجديد للإجابة الصحيحة
-                const newCorrectIndex = shuffledOptions.indexOf(correctAnswer);
-                
-                return {
-                    ...question,
-                    options: shuffledOptions,
-                    correct: newCorrectIndex
-                };
-            });
-        }
-
         // عناصر DOM
         const welcomeScreen = document.getElementById('welcome-screen');
-        const levelSelection = document.getElementById('level-selection');
-        const levelLocked = document.getElementById('level-locked');
-        const quizContainer = document.getElementById('quiz');
-        const resultsContainer = document.getElementById('results-container');
+        const definitionsScreen = document.getElementById('definitions-screen');
+        const theoryScreen = document.getElementById('theory-screen');
         const protocolsScreen = document.getElementById('protocols-screen');
-        const performanceScreen = document.getElementById('performance-screen');
-        const floatingInstagram = document.getElementById('floating-instagram');
         
-        const questionText = document.getElementById('question-text');
-        const optionsContainer = document.getElementById('options-container');
-        const progressBar = document.getElementById('progress-bar');
-        const nextBtn = document.getElementById('next-btn');
-        const submitBtn = document.getElementById('submit-btn');
-        const restartBtn = document.getElementById('restart-btn');
-        const backToLevelsBtn = document.getElementById('back-to-levels');
-        const backToWelcomeBtn = document.getElementById('back-to-welcome');
-        const backToLevelsFromResultsBtn = document.getElementById('back-to-levels-from-results');
-        const tryPreviousLevelBtn = document.getElementById('try-previous-level');
-        const scoreElement = document.getElementById('score');
-        const percentageScoreElement = document.getElementById('percentage-score');
-        const scoreText = document.getElementById('score-text');
-        const explanationElement = document.getElementById('explanation');
-        const level1Btn = document.getElementById('level1-btn');
-        const level2Btn = document.getElementById('level2-btn');
-        const level3Btn = document.getElementById('level3-btn');
-        const performanceBtn = document.getElementById('performance-btn');
-        const startBtn = document.getElementById('start-btn');
-        const lockedMessage = document.getElementById('locked-message');
-        const requiredScore = document.getElementById('required-score');
+        const definitionsTableBody = document.getElementById('definitions-table-body');
+        const theoryTableBody = document.getElementById('theory-table-body');
+        const protocolsContainer = document.getElementById('protocols-container');
+        
+        const definitionsBtn = document.getElementById('definitions-btn');
+        const theoryBtn = document.getElementById('theory-btn');
+        const protocolsBtn = document.getElementById('protocols-btn');
+        
+        const backFromDefinitionsBtn = document.getElementById('back-from-definitions');
+        const backFromTheoryBtn = document.getElementById('back-from-theory');
+        const backFromProtocolsBtn = document.getElementById('back-from-protocols');
 
-        // تأثيرات صوتية
-        const clickSound = document.getElementById('click-sound');
-        const correctSound = document.getElementById('correct-sound');
-        const wrongSound = document.getElementById('wrong-sound');
-        const levelUpSound = document.getElementById('level-up-sound');
-        const successSound = document.getElementById('success-sound');
-
-        // متغيرات الحالة
-        let currentQuestion = 0;
-        let score = 0;
-        let userAnswers = [];
-        let currentLevelQuestions = [];
-        let currentLevel = 1;
-        let level1Passed = false;
-        let level2Passed = false;
-        let shuffledLevel1Questions = [];
-        let shuffledLevel2Questions = [];
-        let level1Score = 0;
-        let level2Score = 0;
-        let questionsAnswered = [];
-        let protocolScores = {
-            titration: 0,
-            gasVolume: 0,
-            gasPressure: 0,
-            conductivity: 0,
-            dilution: 0,
-            solutionPrep: 0
-        };
-
-        // متغيرات المستوى الثالث
-        let currentProtocol = null;
-        let currentProtocolElements = [];
-        let currentProtocolSteps = [];
-        let protocolScore = 0;
-        let currentProtocolStepOrder = 0;
-
-        // تشغيل الصوت
-        function playSound(sound) {
-            sound.currentTime = 0;
-            sound.play().catch(e => console.log("لم يتم تشغيل الصوت:", e));
-        }
-
-        // بدء اللعبة
-        function startGame() {
-            playSound(clickSound);
+        // عرض شاشة التعريفات
+        function showDefinitions() {
             welcomeScreen.style.display = 'none';
-            levelSelection.style.display = 'block';
-            updateLevelButtons();
-        }
-
-        // تحديث أزرار المستويات
-        function updateLevelButtons() {
-            level2Btn.disabled = !level1Passed;
-            level2Btn.classList.toggle('locked', !level1Passed);
+            definitionsScreen.style.display = 'block';
             
-            level3Btn.disabled = !level2Passed;
-            level3Btn.classList.toggle('locked', !level2Passed);
-        }
-
-        // بدء مستوى معين
-        function startLevel(level) {
-            playSound(clickSound);
-            currentLevel = level;
-            
-            // خلط الأسئلة عند بدء كل مستوى
-            if (level === 1) {
-                shuffledLevel1Questions = getShuffledQuestions(level1Questions);
-                currentLevelQuestions = shuffledLevel1Questions;
-            } else {
-                shuffledLevel2Questions = getShuffledQuestions(level2Questions);
-                currentLevelQuestions = shuffledLevel2Questions;
-            }
-            
-            currentQuestion = 0;
-            score = 0;
-            userAnswers = new Array(currentLevelQuestions.length).fill(null);
-            questionsAnswered = new Array(currentLevelQuestions.length).fill(false);
-            
-            levelSelection.style.display = 'none';
-            levelLocked.style.display = 'none';
-            quizContainer.style.display = 'block';
-            resultsContainer.style.display = 'none';
-            
-            showQuestion();
-            updateProgressBar();
-        }
-
-        // محاولة فتح مستوى مقفل
-        function tryLockedLevel(level) {
-            playSound(wrongSound);
-            levelSelection.style.display = 'none';
-            levelLocked.style.display = 'block';
-            
-            if (level === 2) {
-                lockedMessage.textContent = "يجب أن تحصل على 70% على الأقل في المستوى الأول لفتح هذا المستوى";
-                tryPreviousLevelBtn.onclick = () => startLevel(1);
-            } else if (level === 3) {
-                lockedMessage.textContent = "يجب أن تحصل على 70% على الأقل في المستوى الثاني لفتح هذا المستوى";
-                tryPreviousLevelBtn.onclick = () => startLevel(2);
-            }
-        }
-
-        // عرض السؤال الحالي
-        function showQuestion() {
-            const question = currentLevelQuestions[currentQuestion];
-            questionText.innerHTML = `<img src="https://i.suar.me/3AYjm/l" alt="صورة البروفيسور" class="question-image"> ${question.question}`;
-            
-            optionsContainer.innerHTML = '';
-            question.options.forEach((option, index) => {
-                const optionElement = document.createElement('div');
-                optionElement.classList.add('option');
-                if (userAnswers[currentQuestion] === index) {
-                    optionElement.classList.add('selected');
-                }
-                optionElement.innerHTML = option;
-                optionElement.addEventListener('click', () => selectOption(index));
-                optionsContainer.appendChild(optionElement);
+            // ملء جدول التعريفات
+            definitionsTableBody.innerHTML = '';
+            definitions.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="question-cell">${item.question}</td>
+                    <td class="answer-cell">${item.answer}</td>
+                    <td class="explanation-cell">${item.explanation}</td>
+                `;
+                definitionsTableBody.appendChild(row);
             });
-            
-            explanationElement.style.display = 'none';
-            explanationElement.innerHTML = '';
-            
-            // إظهار زر التالي أو عرض النتيجة
-            if (currentQuestion < currentLevelQuestions.length - 1) {
-                nextBtn.style.display = 'block';
-                submitBtn.style.display = 'none';
-            } else {
-                nextBtn.style.display = 'none';
-                submitBtn.style.display = 'block';
-            }
         }
 
-        // اختيار إجابة
-        function selectOption(optionIndex) {
-            // إذا تم الإجابة على هذا السؤال مسبقاً، لا تفعل شيئاً
-            if (questionsAnswered[currentQuestion]) {
-                return;
-            }
+        // عرض شاشة الأسئلة النظرية
+        function showTheory() {
+            welcomeScreen.style.display = 'none';
+            theoryScreen.style.display = 'block';
             
-            playSound(clickSound);
-            userAnswers[currentQuestion] = optionIndex;
-            questionsAnswered[currentQuestion] = true;
-            
-            const question = currentLevelQuestions[currentQuestion];
-            const options = document.querySelectorAll('.option');
-            
-            options.forEach((option, index) => {
-                option.classList.remove('correct', 'wrong');
-                if (index === question.correct) {
-                    option.classList.add('correct');
-                } else if (index === optionIndex && index !== question.correct) {
-                    option.classList.add('wrong');
-                }
+            // ملء جدول الأسئلة النظرية
+            theoryTableBody.innerHTML = '';
+            theoryQuestions.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="question-cell">${item.question}</td>
+                    <td class="answer-cell">${item.answer}</td>
+                    <td class="explanation-cell">${item.explanation}</td>
+                `;
+                theoryTableBody.appendChild(row);
             });
-            
-            // تشغيل الصوت المناسب واحتساب النقاط فقط إذا كانت الإجابة صحيحة من أول مرة
-            if (optionIndex === question.correct) {
-                playSound(correctSound);
-                score++; // احتساب النقطة فقط عند الإجابة الصحيحة
-                // تأثير زر الإنستغرام للإجابة الصحيحة
-                floatingInstagram.classList.add('correct');
-                setTimeout(() => {
-                    floatingInstagram.classList.remove('correct');
-                }, 1000);
-            } else {
-                playSound(wrongSound);
-                // تأثير زر الإنستغرام للإجابة الخاطئة
-                floatingInstagram.classList.add('wrong');
-                setTimeout(() => {
-                    floatingInstagram.classList.remove('wrong');
-                }, 1000);
-            }
-            
-            explanationElement.innerHTML = question.explanation;
-            explanationElement.style.display = 'block';
         }
 
-        // الانتقال للسؤال التالي
-        function nextQuestion() {
-            playSound(clickSound);
-            if (currentQuestion < currentLevelQuestions.length - 1) {
-                currentQuestion++;
-                showQuestion();
-                updateProgressBar();
-            }
-        }
-
-        // تحديث شريط التقدم
-        function updateProgressBar() {
-            const progress = ((currentQuestion + 1) / currentLevelQuestions.length) * 100;
-            progressBar.style.width = `${progress}%`;
-        }
-
-        // تقديم الإجابات وعرض النتيجة
-        function submitQuiz() {
-            playSound(clickSound);
-            
-            // حساب النسبة المئوية
-            const percentage = Math.round((score / currentLevelQuestions.length) * 100);
-            
-            // حفظ النتيجة للمستوى الحالي
-            if (currentLevel === 1) {
-                level1Score = percentage;
-                if (percentage >= 70) {
-                    level1Passed = true;
-                }
-            } else if (currentLevel === 2) {
-                level2Score = percentage;
-                if (percentage >= 70) {
-                    level2Passed = true;
-                }
-            }
-            
-            // عرض النتيجة
-            scoreElement.textContent = `${score}/${currentLevelQuestions.length}`;
-            percentageScoreElement.textContent = `${percentage}%`;
-            
-            let message = '';
-            
-            if (percentage === 100) {
-                message = 'ممتاز! لقد أجبت على جميع الأسئلة بشكل صحيح.';
-                playSound(successSound);
-            } else if (percentage >= 70) {
-                message = 'جيد جداً! لقد نجحت في هذا المستوى.';
-                playSound(levelUpSound);
-            } else if (percentage >= 50) {
-                message = 'مقبول، لكن تحتاج إلى مراجعة بعض المفاهيم.';
-            } else {
-                message = 'يجب عليك مراجعة المادة مرة أخرى.';
-            }
-            
-            scoreText.textContent = message;
-            
-            // إخفاء الاختبار وإظهار النتائج
-            quizContainer.style.display = 'none';
-            resultsContainer.style.display = 'block';
-        }
-
-        // فتح شاشة البروتوكولات
-        function openProtocolsScreen() {
-            playSound(clickSound);
-            levelSelection.style.display = 'none';
+        // عرض شاشة البروتوكولات
+        function showProtocols() {
+            welcomeScreen.style.display = 'none';
             protocolsScreen.style.display = 'block';
             
-            // إضافة أحداث النقر لأزرار البروتوكولات
-            document.getElementById('titrationBtn').addEventListener('click', () => startProtocol('titration'));
-            document.getElementById('gasVolumeBtn').addEventListener('click', () => startProtocol('gasVolume'));
-            document.getElementById('gasPressureBtn').addEventListener('click', () => startProtocol('gasPressure'));
-            document.getElementById('conductivityBtn').addEventListener('click', () => startProtocol('conductivity'));
-            document.getElementById('dilutionBtn').addEventListener('click', () => startProtocol('dilution'));
-            document.getElementById('solutionPrepBtn').addEventListener('click', () => startProtocol('solutionPrep'));
-        }
-
-        // بدء بروتوكول معين
-        function startProtocol(protocolId) {
-            playSound(clickSound);
-            protocolsScreen.style.display = 'none';
-            document.getElementById(protocolId + 'Screen').style.display = 'block';
+            // ملء البروتوكولات
+            protocolsContainer.innerHTML = '';
             
-            currentProtocol = protocolId;
-            const protocol = protocolData[protocolId];
-            
-            // إعادة تعيين النقاط
-            protocolScore = 0;
-            currentProtocolStepOrder = 0;
-            
-            // خلط العناصر
-            currentProtocolElements = shuffleArray([...protocol.elements]);
-            currentProtocolSteps = [...protocol.steps];
-            
-            // إعداد الشاشة
-            document.getElementById(protocolId + 'ElementQuestion').style.display = 'block';
-            document.getElementById(protocolId + 'StepsQuestion').style.display = 'none';
-            document.getElementById(protocolId + 'CompletionMessage').style.display = 'none';
-            
-            // إضافة أحداث العودة
-            document.getElementById('backFrom' + protocolId.charAt(0).toUpperCase() + protocolId.slice(1)).onclick = () => {
-                document.getElementById(protocolId + 'Screen').style.display = 'none';
-                protocolsScreen.style.display = 'block';
-            };
-            
-            // بدء اللعبة
-            showProtocolElementQuestion(protocolId);
-            updateProtocolScore(protocolId);
-            updateProtocolProgress(protocolId);
-        }
-
-        // عرض سؤال العنصر في البروتوكول
-        function showProtocolElementQuestion(protocolId) {
-            if (currentProtocolElements.length === 0) {
-                // الانتقال إلى خطوات العمل
-                document.getElementById(protocolId + 'ElementQuestion').style.display = 'none';
-                document.getElementById(protocolId + 'StepsQuestion').style.display = 'block';
-                showProtocolStepsQuestion(protocolId);
-                return;
-            }
-            
-            const currentElement = currentProtocolElements[0];
-            document.getElementById(protocolId + 'CurrentElement').textContent = currentElement.number;
-            
-            const optionsContainer = document.getElementById(protocolId + 'ElementOptions');
-            optionsContainer.innerHTML = '';
-            
-            currentElement.options.forEach(option => {
-                const optionElement = document.createElement('div');
-                optionElement.className = 'protocol-option';
-                optionElement.innerHTML = option;
-                optionElement.addEventListener('click', () => checkProtocolElementAnswer(option, optionElement, protocolId, currentElement));
-                optionsContainer.appendChild(optionElement);
-            });
-        }
-
-        // التحقق من إجابة العنصر في البروتوكول
-        function checkProtocolElementAnswer(selectedOption, optionElement, protocolId, currentElement) {
-            const allOptions = optionElement.parentElement.querySelectorAll('.protocol-option');
-            allOptions.forEach(opt => {
-                opt.style.pointerEvents = 'none';
-            });
-            
-            if (selectedOption === currentElement.name) {
-                optionElement.classList.add('correct');
-                protocolScore++;
-                updateProtocolScore(protocolId);
-                // تأثير زر الإنستغرام للإجابة الصحيحة
-                floatingInstagram.classList.add('correct');
-                setTimeout(() => {
-                    floatingInstagram.classList.remove('correct');
-                }, 1000);
-            } else {
-                optionElement.classList.add('wrong');
-                allOptions.forEach(opt => {
-                    if (opt.textContent === currentElement.name) {
-                        opt.classList.add('correct');
-                    }
-                });
-                // تأثير زر الإنستغرام للإجابة الخاطئة
-                floatingInstagram.classList.add('wrong');
-                setTimeout(() => {
-                    floatingInstagram.classList.remove('wrong');
-                }, 1000);
-            }
-            
-            setTimeout(() => {
-                currentProtocolElements.shift();
-                showProtocolElementQuestion(protocolId);
-                updateProtocolProgress(protocolId);
-            }, 1000);
-        }
-
-        // عرض خطوات العمل في البروتوكول
-        function showProtocolStepsQuestion(protocolId) {
-            const shuffledSteps = shuffleArray([...currentProtocolSteps]);
-            const stepsContainer = document.getElementById(protocolId + 'StepsContainer');
-            
-            stepsContainer.innerHTML = '';
-            shuffledSteps.forEach((step, index) => {
-                const stepElement = document.createElement('div');
-                stepElement.className = 'step';
-                stepElement.innerHTML = step;
-                stepElement.dataset.index = index;
-                stepElement.addEventListener('click', () => checkProtocolStepOrder(step, stepElement, protocolId));
-                stepsContainer.appendChild(stepElement);
-            });
-            
-            currentProtocolStepOrder = 0;
-        }
-
-        // التحقق من ترتيب الخطوات في البروتوكول
-        function checkProtocolStepOrder(selectedStep, stepElement, protocolId) {
-            if (currentProtocolSteps[currentProtocolStepOrder] === selectedStep) {
-                stepElement.classList.add('correct-order');
-                stepElement.style.pointerEvents = 'none';
-                currentProtocolStepOrder++;
+            Object.keys(protocolData).forEach(protocolId => {
+                const protocol = protocolData[protocolId];
                 
-                if (currentProtocolStepOrder === currentProtocolSteps.length) {
-                    protocolScore += 2;
-                    updateProtocolScore(protocolId);
-                    document.getElementById(protocolId + 'CompletionMessage').style.display = 'block';
-                    // حفظ النتيجة للبروتوكول
-                    protocolScores[protocolId] = protocolScore;
-                }
-            }
-        }
-
-        // تحديث النقاط في البروتوكول
-        function updateProtocolScore(protocolId) {
-            const totalElements = protocolData[protocolId].elements.length;
-            document.getElementById(protocolId + 'Score').textContent = `النقاط: ${protocolScore}/${totalElements + 2}`;
-        }
-
-        // تحديث التقدم في البروتوكول
-        function updateProtocolProgress(protocolId) {
-            const totalElements = protocolData[protocolId].elements.length;
-            const answeredCount = totalElements - currentProtocolElements.length;
-            const progressPercentage = (answeredCount / totalElements) * 100;
-            document.getElementById(protocolId + 'Progress').style.width = `${progressPercentage}%`;
-        }
-
-        // فتح شاشة التقييم
-        function openPerformanceScreen() {
-            playSound(clickSound);
-            levelSelection.style.display = 'none';
-            performanceScreen.style.display = 'block';
-            
-            // حساب التقييم الشامل
-            let totalScore = 0;
-            let levelCount = 0;
-            
-            if (level1Passed) {
-                totalScore += level1Score;
-                levelCount++;
-            }
-            
-            if (level2Passed) {
-                totalScore += level2Score;
-                levelCount++;
-            }
-            
-            // حساب متوسط درجات البروتوكولات
-            let protocolCount = 0;
-            let protocolTotal = 0;
-            
-            Object.values(protocolScores).forEach(score => {
-                if (score > 0) {
-                    protocolTotal += (score / 10) * 100; // تحويل النقاط إلى نسبة مئوية
-                    protocolCount++;
-                }
+                const protocolElement = document.createElement('div');
+                protocolElement.className = 'protocol-container';
+                protocolElement.innerHTML = `
+                    <h3 class="protocol-title">${protocol.title}</h3>
+                    <img src="${protocol.image}" alt="${protocol.title}" class="protocol-image" onerror="this.src='https://via.placeholder.com/600x400/2e8b57/ffffff?text=صورة+البروتوكول'">
+                    
+                    <div class="elements-container">
+                        <h4 class="elements-title">عناصر البروتوكول:</h4>
+                        <div class="elements-grid">
+                            ${protocol.elements.map(element => `
+                                <div class="element-card">
+                                    <div class="element-number">${element.number}</div>
+                                    <div class="element-name">${element.name}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="steps-container">
+                        <h4 class="steps-title">خطوات العمل التجريبي:</h4>
+                        <ol class="steps-list">
+                            ${protocol.steps.map(step => `
+                                <li class="step-item">${step}</li>
+                            `).join('')}
+                        </ol>
+                    </div>
+                `;
+                
+                protocolsContainer.appendChild(protocolElement);
             });
-            
-            if (protocolCount > 0) {
-                totalScore += protocolTotal / protocolCount;
-                levelCount++;
-            }
-            
-            const overallScore = levelCount > 0 ? Math.round(totalScore / levelCount) : 0;
-            
-            document.getElementById('overall-score').textContent = `${overallScore}%`;
-            
-            let message = '';
-            let advice = '';
-            
-            if (overallScore >= 90) {
-                message = 'رائع! أداؤك متميز جداً 👏';
-                advice = 'أنت على الطريق الصحيح، استمر في التفوق! ننصحك بمتابعة بقية الوحدات على صفحتنا في الإنستغرام 😍';
-            } else if (overallScore >= 70) {
-                message = 'جيد جداً! أداؤك مرضٍ 💪';
-                advice = 'يمكنك تحسين أدائك بمزيد من الممارسة والمراجعة. تابع بقية الوحدات على صفحتنا في الإنستغرام 😊';
-            } else if (overallScore >= 50) {
-                message = 'مقبول، ولكن هناك مجال للتحسين 📚';
-                advice = 'ننصحك بمراجعة الدروس وحل المزيد من التمارين. زورا صفحتنا على الإنستغرام للحصول على بقية الوحدات والألعاب 😃';
-            } else {
-                message = 'يحتاج تحسين، لا تيأس! 🌟';
-                advice = 'كرر اللعب ومرن نفسك للوصول إلى العلامة الكاملة. للحصول على بقية الوحدات والألعاب زورا صفحتنا على الإنستغرام 😍';
-            }
-            
-            document.getElementById('performance-message').textContent = message;
-            document.getElementById('performance-advice').textContent = advice;
         }
 
-        // العودة لاختيار المستوى
-        function backToLevels() {
-            playSound(clickSound);
-            levelSelection.style.display = 'block';
-            quizContainer.style.display = 'none';
-            resultsContainer.style.display = 'none';
-            levelLocked.style.display = 'none';
-            protocolsScreen.style.display = 'none';
-            performanceScreen.style.display = 'none';
-            
-            // إخفاء جميع شاشات البروتوكولات
-            Object.keys(protocolData).forEach(protocolId => {
-                document.getElementById(protocolId + 'Screen').style.display = 'none';
-            });
-            
-            updateLevelButtons();
-        }
-
-        // العودة للشاشة الرئيسية
-        function backToWelcome() {
-            playSound(clickSound);
+        // العودة للصفحة الرئيسية
+        function backToHome() {
             welcomeScreen.style.display = 'block';
-            levelSelection.style.display = 'none';
-            quizContainer.style.display = 'none';
-            resultsContainer.style.display = 'none';
-            levelLocked.style.display = 'none';
+            definitionsScreen.style.display = 'none';
+            theoryScreen.style.display = 'none';
             protocolsScreen.style.display = 'none';
-            performanceScreen.style.display = 'none';
-            
-            // إخفاء جميع شاشات البروتوكولات
-            Object.keys(protocolData).forEach(protocolId => {
-                document.getElementById(protocolId + 'Screen').style.display = 'none';
-            });
         }
 
         // إضافة المستمعين للأحداث
-        nextBtn.addEventListener('click', nextQuestion);
-        submitBtn.addEventListener('click', submitQuiz);
-        restartBtn.addEventListener('click', () => startLevel(currentLevel));
-        backToLevelsBtn.addEventListener('click', backToLevels);
-        backToWelcomeBtn.addEventListener('click', backToWelcome);
-        backToLevelsFromResultsBtn.addEventListener('click', backToLevels);
-        document.getElementById('back-from-protocols').addEventListener('click', backToLevels);
-        document.getElementById('back-from-performance').addEventListener('click', backToLevels);
+        definitionsBtn.addEventListener('click', showDefinitions);
+        theoryBtn.addEventListener('click', showTheory);
+        protocolsBtn.addEventListener('click', showProtocols);
         
-        level1Btn.addEventListener('click', () => startLevel(1));
-        level2Btn.addEventListener('click', () => {
-            if (level1Passed) {
-                startLevel(2);
-            } else {
-                tryLockedLevel(2);
-            }
-        });
-        level3Btn.addEventListener('click', () => {
-            if (level2Passed) {
-                openProtocolsScreen();
-            } else {
-                tryLockedLevel(3);
-            }
-        });
-        performanceBtn.addEventListener('click', openPerformanceScreen);
-        startBtn.addEventListener('click', startGame);
+        backFromDefinitionsBtn.addEventListener('click', backToHome);
+        backFromTheoryBtn.addEventListener('click', backToHome);
+        backFromProtocolsBtn.addEventListener('click', backToHome);
     </script>
 </body>
 </html>
